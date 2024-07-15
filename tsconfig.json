@@ -11,7 +11,14 @@
         "esModuleInterop": true,
         "baseUrl": ".",
         "paths": {
-            "@/*": ["./src/*"]
+            "@/*": ["./src/*"],
+            "@components/*": ["components/*"],
+            "@styles/*": ["styles/*"],
+            "@constants/*": ["constants/*"],
+            "@ui/*": ["ui/*"],
+            "@utils/*": ["utils/*"],
+            "@assets/*": ["assets/*"],
+            "@pages/*": ["pages/*"],
         },
         "plugins": [
             {

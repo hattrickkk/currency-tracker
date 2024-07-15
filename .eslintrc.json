@@ -54,7 +54,17 @@
                 "tsx": "never"
             }
         ],
-        "simple-import-sort/imports": "error",
+        "simple-import-sort/imports": [
+            "error",
+            {
+                "groups": [
+                    ["^react", "^@?\\w"],
+                    ["^(@|components|styles|assets|ui|constants|pages|utils)(/.*|$)"],
+                    ["^\\."],
+                    ["^.+\\.s?css$"]
+                ]
+            }
+        ],
         "simple-import-sort/exports": "error",
         "import/first": "error",
         "import/no-duplicates": "error"
