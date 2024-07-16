@@ -43,7 +43,11 @@ module.exports = {
                     },
                     'sass-loader',
                 ],
-
+                exclude: /node_modules/,
+            },
+            {
+                test: /\.(ico|svg|png|gif|jpg|jpeg)$/,
+                loader: 'file-loader',
                 exclude: /node_modules/,
             },
         ],
