@@ -1,0 +1,58 @@
+@import '@styles/constants.scss';
+
+.switcher{
+	label{
+		position: relative;
+		display: block;
+		max-width: 50px;
+		border-radius: 20px;
+	}
+
+	input{
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		visibility: hidden;
+	}
+
+	input:checked ~ &__button{
+		background-color: $black;
+		border: 2px solid $black;
+		transform: translateX(25px);
+	}
+
+	input:checked~&__body {
+		border: 2px solid $black;
+	}
+
+	input:hover~&__body,
+	input:hover~&__button {
+		border: 2px solid $lightGreen;
+	}
+
+	&__body, &__button {
+		display: block;
+		height: 25px;
+		border: 2px solid $white;
+		border-radius: 20px;
+		transition: all 0.3s ease;
+		cursor: pointer;
+	}
+
+	&__body{
+		width: 	50px;
+	}
+
+	&__button{
+		width: 25px;
+		position: absolute;
+		top:0;
+		left: 0;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	.switcher {
+		transform: scale(1.5);
+	}
+}
