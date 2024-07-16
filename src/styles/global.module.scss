@@ -1,0 +1,21 @@
+@import '@styles/constants.scss';
+
+body{
+	font-weight: 300;
+	font-size: 20px;
+	line-height: 41px;
+	font-family: "Poppins";
+}
+
+.wrapper {
+	overflow: hidden;
+	min-height: 100%;
+}
+
+.container {
+	max-width: $containerWidth;
+	margin: 0 auto;
+	padding: 0 15px;
+	box-sizing: border-box;
+}
+
