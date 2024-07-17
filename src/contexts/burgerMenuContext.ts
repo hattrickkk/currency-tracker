@@ -1,5 +1,5 @@
 import { createContext } from 'react'
-import { BurgerMenuContextType } from 'types/context'
+import { BurgerMenuContextType } from '@customTypes/context'
 
 const BurgerMenuContext = createContext<BurgerMenuContextType>({} as BurgerMenuContextType)
 export default BurgerMenuContext

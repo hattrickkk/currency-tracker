@@ -20,7 +20,7 @@
             "@assets/*": ["assets/*"],
             "@pages/*": ["pages/*"],
             "@contexts/*": ["contexts/*"],
-            "@types/*": ["types/*"],
+            "@customTypes/*": ["customTypes/*"],
         },
         "plugins": [
             {

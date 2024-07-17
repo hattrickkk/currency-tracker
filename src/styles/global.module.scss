@@ -7,6 +7,7 @@ body{
 	line-height: 41px;
 	font-family: "Poppins";
 	background-color: $BLACK;
+	color: $WHITE;
 }
 
 .wrapper {
@@ -17,7 +18,7 @@ body{
 .container {
 	max-width: $CONTAINER_WIDTH;
 	margin: 0 auto;
-	padding: 0 15px;
+	padding: 0 35px;
 	box-sizing: border-box;
 }
 

@@ -64,7 +64,7 @@ module.exports = {
             '@assets': path.resolve(__dirname, 'src/assets'),
             '@pages': path.resolve(__dirname, 'src/pages'),
             '@contexts': path.resolve(__dirname, 'src/contexts'),
-            '@types': path.resolve(__dirname, 'src/types'),
+            '@customTypes': path.resolve(__dirname, 'src/customTypes'),
         },
     },
 }

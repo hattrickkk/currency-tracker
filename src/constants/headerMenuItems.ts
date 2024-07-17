@@ -1,11 +1,7 @@
 import * as paths from '@constants/paths'
+import { MenuItemType } from '@customTypes/menuItem'
 
-type HeaderMenuItemType = {
-    path: string
-    title: string
-}
-
-const HEADER_MENU_ITEMS: HeaderMenuItemType[] = [
+const HEADER_MENU_ITEMS: MenuItemType[] = [
     {
         path: paths.HOME,
         title: 'Home',

@@ -6,7 +6,7 @@ type PropsType = {
     path: string
     title: string
     className: string
-    onClick: () => void
+    onClick?: () => void
 }
 
 function LinkItem({ path, title, className, onClick }: PropsType) {
@@ -23,7 +23,7 @@ LinkItem.propTypes = {
     path: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     className: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
+    onClick: PropTypes.func,
 }
 
 export default React.memo(LinkItem)
