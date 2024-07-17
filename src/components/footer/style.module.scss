@@ -132,8 +132,6 @@
 			}
 
 			&__title {
-				margin: 0;
-
 				svg {
 					transform: scale(0.7);
 				}
@@ -180,6 +178,10 @@
 
 			&__nav {
 				flex-direction: column;
+				margin: 0;
+			}
+
+			&__title {
 				margin: 0;
 			}
 
