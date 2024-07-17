@@ -1,4 +1,4 @@
-@import '@styles/constants.scss';
+@import '@styles/colors.scss';
 
 .switcher{
 	label{
@@ -16,24 +16,24 @@
 	}
 
 	input:checked ~ &__button{
-		background-color: $black;
-		border: 2px solid $black;
+		background-color: $BLACK;
+		border: 2px solid $BLACK;
 		transform: translateX(25px);
 	}
 
 	input:checked~&__body {
-		border: 2px solid $black;
+		border: 2px solid $BLACK;
 	}
 
 	input:hover~&__body,
 	input:hover~&__button {
-		border: 2px solid $lightGreen;
+		border: 2px solid $LIGHT_GREEN;
 	}
 
 	&__body, &__button {
 		display: block;
 		height: 25px;
-		border: 2px solid $white;
+		border: 2px solid $WHITE;
 		border-radius: 20px;
 		transition: all 0.3s ease;
 		cursor: pointer;

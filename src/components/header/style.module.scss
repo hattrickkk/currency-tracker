@@ -1,7 +1,8 @@
-@import '@styles/constants.scss';
+@import '@styles/colors.scss';
+@import '@styles/sizes.scss';
 
 .header{
-	background-color: $black;
+	background-color: $BLACK;
 	padding: 35px 0;
 	position: fixed;
 	z-index: 100;
@@ -41,16 +42,16 @@
 
 		a{
 			cursor: pointer;
-			color: $white;
+			color: $WHITE;
 			font-size: 20px;
 			transition: 0.2s linear;
 
 			&:hover {
-				color: $lightGreen;
+				color: $LIGHT_GREEN;
 			}
 
 			&:active {
-				color: $darkGreen;
+				color: $DARK_GREEN;
 			}
 		}
 	}
@@ -66,7 +67,7 @@
 		&:hover > span,
 		&:hover > span::before,
 		&:hover > span::after {
-			background-color: $lightGreen;
+			background-color: $LIGHT_GREEN;
 		}
 	
 		span,
@@ -75,7 +76,7 @@
 			width: 45px;
 			height: 2px;
 			border-radius: 10px;
-			background-color: $white;
+			background-color: $WHITE;
 			transition: all linear 0.2s;
 		}
 	
@@ -102,7 +103,7 @@
 
 		&.active{
 			span{
-				background: rgba(0, 0, 0, 0.0);
+				background: rgba($BLACK, 0.0);
 
 				&::before {
 					transform: translateY(0px) rotate(-45deg);
@@ -116,7 +117,7 @@
 	}
 }
 
-@media screen and (max-width: 820px) {
+@media screen and (max-width: $NORMAL_TABLET) {
 	.header {
 		padding: 30px 0;
 
@@ -129,8 +130,10 @@
 	}
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: $SMALL_TABLET) {
 	.header {
+		padding: 20px 0;
+
 		.separator{
 			display: none;
 		}
@@ -141,9 +144,10 @@
 			left: 100%;
 			width: 100vw;
 			height: 100vh;
-			background-color: $black;
+			background-color: $BLACK;
 			flex-direction: column;
-			justify-content: center;
+			justify-content: flex-start;
+			padding: 160px 0 0 0;
 
 			&.active{
 				left: 0;

@@ -21,16 +21,12 @@ function Header() {
     }, [isOpen])
 
     const clickLogoHandler = useCallback(() => {
-        if (isOpen) {
-            closeMenu()
-        }
-        if (location.pathname !== paths.HOME) {
-            navigate(paths.HOME)
-        }
+        if (isOpen) closeMenu()
+        if (location.pathname !== paths.HOME) navigate(paths.HOME)
     }, [isOpen, location])
 
     return (
-        <div className={styles.header}>
+        <header className={styles.header}>
             <div className={global.container}>
                 <div className={styles.header__inner}>
                     <div className={styles.header__logo} onClick={clickLogoHandler}>
@@ -61,7 +57,7 @@ function Header() {
                     </div>
                 </div>
             </div>
-        </div>
+        </header>
     )
 }
 
