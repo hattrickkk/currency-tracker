@@ -1,0 +1,119 @@
+@import '@styles/colors.scss';
+@import '@styles/sizes.scss';
+
+.banner{
+	padding: 160px 0 58px;
+	background: linear-gradient(225deg, $BLACK 0%, $BANNER_GREEN 60%, $BLACK 100%);
+
+	&__inner {
+		display: flex;
+	}
+
+	&__text{
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+	}
+
+	&__title, 
+	&__subtitle{
+		font-weight: 600;
+		text-align: right;
+		background: linear-gradient(92deg, $DARK_GREEN 0%, $LIGHT_GREEN_MEDIUM 49.26%, $LIGHT_GREEN 100%);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		padding: 0 64px 0 0;
+	}
+
+	&__title{
+		margin: 0 15px 20px 0;
+		font-size: 76px;
+	}
+
+	&__subtitle{
+		font-size: 90px;
+		margin: 0 0px 30px 0;
+	}
+
+	&__label {
+		font-size: 25px;
+		line-height: 50px;
+		text-align: center;
+		color: $LIGHT_GRAY;
+		font-weight: 300;
+		max-width: 400px;
+		text-wrap: wrap;
+	}
+
+	&__logo{
+		width: 300px;
+		margin: 0 0 0 10px;
+
+		img{
+			width: 100%;
+		}
+	}
+}
+
+@media screen and (max-width: $SMALL_DESKTOP) {
+	.banner {
+		&__text {
+			margin: 0 auto;
+			align-items: center;
+		}
+
+		&__title,
+		&__subtitle {
+			text-align: center;
+			padding: 0;
+			margin: 0 0 20px 0;
+		}
+
+		&__subtitle{
+			margin: 0 0 30px 0;
+		}
+
+		&__logo {
+			display: none;
+		}
+	}
+}
+
+@media screen and (max-width: $NORMAL_TABLET) {
+	.banner {
+
+		padding: 140px 0 40px;
+
+		&__title,
+		&__subtitle {
+			font-size: 55px;
+		}
+
+		&__label {
+			font-size: 20px;
+			line-height: 40px;
+		}
+	}
+}
+
+@media screen and (max-width: $SMALL_TABLET) {
+	.banner {
+		padding: 115px 0 25px;
+		
+		&__title,
+		&__subtitle {
+			font-size: 45px;
+		}
+
+		&__title{
+			line-height: 60px;
+			margin: 0 0 10px 0;
+		}
+		
+		&__label {
+			font-size: 16px;
+			line-height: 30px;
+		}
+	}
+}
