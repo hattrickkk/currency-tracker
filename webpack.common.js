@@ -65,6 +65,7 @@ module.exports = {
             '@pages': path.resolve(__dirname, 'src/pages'),
             '@contexts': path.resolve(__dirname, 'src/contexts'),
             '@customTypes': path.resolve(__dirname, 'src/customTypes'),
+            '@mockData': path.resolve(__dirname, 'src/mockData'),
         },
     },
 }

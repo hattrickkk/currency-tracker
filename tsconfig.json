@@ -21,6 +21,7 @@
             "@pages/*": ["pages/*"],
             "@contexts/*": ["contexts/*"],
             "@customTypes/*": ["customTypes/*"],
+            "@mockData/*": ["mockData/*"],
         },
         "plugins": [
             {

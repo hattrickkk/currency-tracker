@@ -51,6 +51,8 @@
         "no-restricted-globals": "off",
         "react/require-default-props": "off",
         "jsx-a11y/no-noninteractive-element-interactions" : "off",
+        "camelcase": "off",
+        "jsx-a11y/label-has-associated-control": "off",
         "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts", ".jsx", ".js"] }],
         "import/extensions": [
             "error",
