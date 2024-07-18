@@ -1,0 +1,11 @@
+@import '@styles/sizes.scss';
+
+.currencies{
+	margin: 0 0 50px 0
+}
+
+@media screen and (max-width: $NORMAL_TABLET) {
+	.currencies {
+		margin: 0 0 40px 0
+	}
+}

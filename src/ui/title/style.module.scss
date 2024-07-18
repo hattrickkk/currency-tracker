@@ -1,0 +1,31 @@
+@import '@styles/colors.scss';
+@import '@styles/sizes.scss';
+
+.title{
+	font-size: 32px;
+	font-weight: 300;
+	padding: 25px 0;
+	border-bottom: 2px solid $CURRENCY_CARD_STROKE;
+	margin: 0 0 50px 0;
+	width: calc(50% - 30px);
+}
+
+@media screen and (max-width: $SMALL_DESKTOP) {
+	.title {
+		width: calc(50% - 20px);
+	}
+}
+
+@media screen and (max-width: $NORMAL_TABLET) {
+	.title {
+		font-size: 24px;
+		margin: 0 0 40px 0;
+		padding: 20px 0;
+	}
+}
+
+@media screen and (max-width: $MEDIUM_TABLET) {
+	.title {
+		width: 100%;
+	}
+}
