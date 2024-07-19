@@ -8,11 +8,12 @@ type PropsType = {
     picture: string
     code?: string
     value?: string
+    onClick?: () => void
 }
 
-function CurrencyCard({ name, code, picture, value }: PropsType) {
+function CurrencyCard({ name, code, picture, value, onClick }: PropsType) {
     return (
-        <div className={styles.card}>
+        <div className={styles.card} onClick={onClick}>
             <div className={styles.card__inner}>
                 <div className={styles.card__img}>
                     <img src={picture} alt={code} />

@@ -16,7 +16,7 @@ function Header() {
     const navigate = useNavigate()
     const location = useLocation()
 
-    const burgerMenuClickHandler = () => isOpen ? closeMenu() : openMenu()
+    const burgerMenuClickHandler = () => (isOpen ? closeMenu() : openMenu())
 
     const clickLogoHandler = useCallback(() => {
         if (isOpen) closeMenu()

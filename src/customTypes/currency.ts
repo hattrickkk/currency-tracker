@@ -21,3 +21,8 @@ export type IndexType = {
     value: string
     picture: string
 }
+
+export type CurrentCurrencyType = {
+    name: string
+    code: string
+}

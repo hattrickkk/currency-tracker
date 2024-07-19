@@ -20,4 +20,4 @@ function CurrenciesSection() {
     )
 }
 
-export default React.memo(CurrenciesSection)
+export default CurrenciesSection
