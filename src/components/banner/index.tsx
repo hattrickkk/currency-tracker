@@ -1,4 +1,3 @@
-import React from 'react'
 import bannerLogo from '@assets/bannerLogo.svg'
 
 import * as styles from '@components/banner/style.module.scss'
@@ -25,4 +24,4 @@ function Banner() {
     )
 }
 
-export default React.memo(Banner)
+export default Banner
