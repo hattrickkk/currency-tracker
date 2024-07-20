@@ -12,6 +12,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'public', 'index.html') }),
         new MiniCssExtractPlugin(),
+        require('autoprefixer')
     ],
     module: {
         strictExportPresence: true,
@@ -41,6 +42,15 @@ module.exports = {
                             },
                         },
                     },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            postcssOptions: {
+                                plugins: ['autoprefixer']
+                            }
+                        }
+                    },
+                    'sass-loader',
                     'sass-loader',
                 ],
                 exclude: /node_modules/,
