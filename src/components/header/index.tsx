@@ -7,6 +7,7 @@ import { BurgerMenuContextType } from '@customTypes/context'
 import LinkItem from '@ui/linkItem'
 import Logo from '@ui/logo'
 import Switcher from '@ui/switcher'
+import clsx from 'clsx'
 
 import * as styles from '@components/header/style.module.scss'
 import * as global from '@styles/global.module.scss'
@@ -31,7 +32,7 @@ function Header() {
                         <Logo />
                     </div>
                     <div className={styles.separator} />
-                    <nav className={isOpen ? [styles.active, styles.header__nav].join(' ') : styles.header__nav}>
+                    <nav className={isOpen ? clsx([styles.active, styles.header__nav]) : styles.header__nav}>
                         <ul className={styles.header__menu}>
                             {HEADER_MENU_ITEMS.map(el => (
                                 <LinkItem
@@ -48,7 +49,7 @@ function Header() {
                         </div>
                     </nav>
                     <div
-                        className={isOpen ? [styles.active, styles.header__burger].join(' ') : styles.header__burger}
+                        className={isOpen ? clsx([styles.active, styles.header__burger]) : styles.header__burger}
                         onClick={burgerMenuClickHandler}
                     >
                         <span />

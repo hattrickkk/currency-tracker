@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom'
 import CurrentCurrencyContext from '@contexts/currentCurrencyContext'
 import latest from '@mockData/latest'
 import Input from '@ui/input'
+import clsx from 'clsx'
 
 import * as styles from '@components/popup/style.module.scss'
 
@@ -37,7 +38,7 @@ function Popup() {
     }
 
     return createPortal(
-        <div className={isPopupOpen ? [styles.popup, styles.active].join(' ') : styles.popup}>
+        <div className={isPopupOpen ? clsx([styles.popup, styles.active]) : styles.popup}>
             <div className={styles.popup__wrapper}>
                 <div className={styles.popup__btn} onClick={closePopup}>
                     <span />
