@@ -20,6 +20,7 @@
         "@babel/preset-react": "^7.24.7",
         "@babel/preset-typescript": "7.24.7",
         "@eslint/js": "^9.6.0",
+        "@types/prop-types": "^15.7.12",
         "@types/react": "18.3.3",
         "@types/react-dom": "18.3.0",
         "babel-eslint": "^10.1.0",
@@ -52,7 +53,6 @@
     },
     "tscheck": "tsc",
     "dependencies": {
-        "@types/prop-types": "^15.7.12",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
         "react-router-dom": "^6.24.1"

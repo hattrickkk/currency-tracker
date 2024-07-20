@@ -53,6 +53,7 @@
         "jsx-a11y/no-noninteractive-element-interactions" : "off",
         "camelcase": "off",
         "jsx-a11y/label-has-associated-control": "off",
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
         "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts", ".jsx", ".js"] }],
         "import/extensions": [
             "error",
