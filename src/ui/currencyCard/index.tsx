@@ -1,9 +1,8 @@
 import React from 'react'
-import PropsType from 'prop-types'
 
 import * as styles from '@ui/currencyCard/style.module.scss'
 
-type PropsType = {
+type Props = {
     name: string
     picture: string
     code?: string
@@ -11,7 +10,7 @@ type PropsType = {
     onClick?: () => void
 }
 
-function CurrencyCard({ name, code, picture, value, onClick }: PropsType) {
+function CurrencyCard({ name, code, picture, value, onClick }: Props) {
     return (
         <div className={styles.card} onClick={onClick}>
             <div className={styles.card__inner}>
@@ -25,12 +24,6 @@ function CurrencyCard({ name, code, picture, value, onClick }: PropsType) {
             </div>
         </div>
     )
-}
-
-CurrencyCard.propsType = {
-    name: PropsType.string.isRequired,
-    code: PropsType.string,
-    picture: PropsType.string.isRequired,
 }
 
 export default React.memo(CurrencyCard)

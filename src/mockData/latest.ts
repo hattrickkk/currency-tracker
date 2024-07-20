@@ -1,20 +1,20 @@
 import { string } from 'prop-types'
 
-type LatestDataType = {
+type LatestData = {
     code: string
     value: number
 }
 
-type LatestType = {
+type Latest = {
     meta: {
         last_updated_at: string
     }
     data: {
-        [key: string]: LatestDataType
+        [key: string]: LatestData
     }
 }
 
-const latest: LatestType = {
+const latest: Latest = {
     meta: {
         last_updated_at: '2024-07-17T23:59:59Z',
     },

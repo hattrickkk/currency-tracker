@@ -1,6 +1,6 @@
-import { FooterMenuItemType } from '@customTypes/menuItem'
+import { FooterMenuItem } from '@customTypes/menuItem'
 
-const FOOTER_MENU_ITEMS: FooterMenuItemType[] = [
+const FOOTER_MENU_ITEMS: FooterMenuItem[] = [
     {
         name: 'General',
         items: [

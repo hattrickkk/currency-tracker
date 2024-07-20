@@ -1,11 +1,11 @@
 import { ReactElement, useMemo, useState } from 'react'
 import BurgerMenuContext from '@contexts/burgerMenuContext'
 
-type PropsType = {
+type Props = {
     children: ReactElement
 }
 
-function BurgerMenuContextProvider({ children }: PropsType) {
+function BurgerMenuContextProvider({ children }: Props) {
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const openMenu = () => setIsOpen(true)
     const closeMenu = () => setIsOpen(false)

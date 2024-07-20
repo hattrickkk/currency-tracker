@@ -1,9 +1,9 @@
-export type MenuItemType = {
+export type MenuItem = {
     path: string
     title: string
 }
 
-export type FooterMenuItemType = {
+export type FooterMenuItem = {
     name: string
-    items: MenuItemType[]
+    items: MenuItem[]
 }

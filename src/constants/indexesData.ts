@@ -1,8 +1,8 @@
 import IBOV from '@assets/currencies/IBOV.svg'
 import IFIX from '@assets/currencies/IFIX.svg'
-import { IndexType } from '@customTypes/currency'
+import { Index } from '@customTypes/currency'
 
-const INDEXES: IndexType[] = [
+const INDEXES: Index[] = [
     {
         name: 'Bovespa Index',
         value: '0.15%',

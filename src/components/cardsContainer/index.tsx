@@ -1,23 +1,23 @@
 import React, { useContext } from 'react'
 import CURRENCIES_SYMBOLS from '@constants/currenciesSymbols'
 import CurrentCurrencyContext from '@contexts/currentCurrencyContext'
-import { IndexType } from '@customTypes/currency'
+import { Index } from '@customTypes/currency'
 import currencies from '@mockData/currency'
 import CurrencyCard from '@ui/currencyCard'
 
 import * as styles from '@components/cardsContainer/style.module.scss'
 
-type PropsType = {
-    elements: (string | IndexType)[]
+type Props = {
+    elements: (string | Index)[]
     type: 'currency' | 'index'
 }
 
-function CardsContainer({ elements, type }: PropsType) {
+function CardsContainer({ elements, type }: Props) {
     const { setCurrentCurrency, openPopup } = useContext(CurrentCurrencyContext)
 
     return (
         <div className={styles.cardsContainer}>
-            {elements.map((el: string | IndexType, i) => {
+            {elements.map((el: string | Index) => {
                 return type === 'currency' ? (
                     <CurrencyCard
                         key={currencies.data[el as string].code}
@@ -34,10 +34,10 @@ function CardsContainer({ elements, type }: PropsType) {
                     />
                 ) : (
                     <CurrencyCard
-                        key={(el as IndexType).name}
-                        name={(el as IndexType).name}
-                        value={(el as IndexType).value}
-                        picture={(el as IndexType).picture}
+                        key={(el as Index).name}
+                        name={(el as Index).name}
+                        value={(el as Index).value}
+                        picture={(el as Index).picture}
                     />
                 )
             })}

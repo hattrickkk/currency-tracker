@@ -8,11 +8,11 @@ import GBP from '@assets/currencies/GBP.svg'
 import JPY from '@assets/currencies/JPY.svg'
 import USD from '@assets/currencies/USD.svg'
 
-type SymbolsType = {
+type Symbols = {
     [key: string]: string
 }
 
-const CURRENCIES_SYMBOLS: SymbolsType = {
+const CURRENCIES_SYMBOLS: Symbols = {
     ARS,
     USD,
     EUR,

@@ -1,16 +1,16 @@
 import { ReactElement, useMemo, useState } from 'react'
 import CurrentCurrencyContext from '@contexts/currentCurrencyContext'
-import { CurrentCurrencyType } from '@customTypes/currency'
+import { CurrentCurrency } from '@customTypes/currency'
 
-type PropsType = {
+type Props = {
     children: ReactElement
 }
 
-function CurrentCurrencyContextProvider({ children }: PropsType) {
+function CurrentCurrencyContextProvider({ children }: Props) {
     const [currentCurrency, setCurrentCurrency] = useState({
         name: '',
         code: '',
-    } as CurrentCurrencyType)
+    } as CurrentCurrency)
 
     const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false)
     const openPopup = () => setIsPopupOpen(true)

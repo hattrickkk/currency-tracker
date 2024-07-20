@@ -1,6 +1,6 @@
-import { CurrenciesResponseType } from '@customTypes/currency'
+import { CurrenciesResponse } from '@customTypes/currency'
 
-const currencies: CurrenciesResponseType = {
+const currencies: CurrenciesResponse = {
     data: {
         ARS: {
             symbol: 'AR$',

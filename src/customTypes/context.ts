@@ -1,4 +1,4 @@
-import { CurrentCurrencyType } from '@customTypes/currency'
+import { CurrentCurrency } from '@customTypes/currency'
 
 export type BurgerMenuContextType = {
     isOpen: boolean
@@ -7,8 +7,8 @@ export type BurgerMenuContextType = {
 }
 
 export type CurrentCurrencyContextType = {
-    currentCurrency: CurrentCurrencyType
-    setCurrentCurrency: React.Dispatch<React.SetStateAction<CurrentCurrencyType>>
+    currentCurrency: CurrentCurrency
+    setCurrentCurrency: React.Dispatch<React.SetStateAction<CurrentCurrency>>
     isPopupOpen: boolean
     openPopup: () => void
     closePopup: () => void

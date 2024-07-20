@@ -1,4 +1,4 @@
-export type CurrencyType = {
+export type Currency = {
     symbol: string
     name: string
     symbol_native: string
@@ -10,19 +10,19 @@ export type CurrencyType = {
     countries: string[]
 }
 
-export type CurrenciesResponseType = {
+export type CurrenciesResponse = {
     data: {
-        [key: string]: CurrencyType
+        [key: string]: Currency
     }
 }
 
-export type IndexType = {
+export type Index = {
     name: string
     value: string
     picture: string
 }
 
-export type CurrentCurrencyType = {
+export type CurrentCurrency = {
     name: string
     code: string
 }

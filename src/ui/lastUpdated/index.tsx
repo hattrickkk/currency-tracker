@@ -1,14 +1,13 @@
 import React from 'react'
-import PropsType from 'prop-types'
 
 import * as global from '@styles/global.module.scss'
 import * as styles from '@ui/lastUpdated/style.module.scss'
 
-type PropsType = {
+type Props = {
     time: string
 }
 
-function LastUpdated({ time }: PropsType) {
+function LastUpdated({ time }: Props) {
     const hours = new Date(time).getUTCHours()
     const minutes = new Date(time).getUTCMinutes()
     return (
@@ -21,9 +20,4 @@ function LastUpdated({ time }: PropsType) {
         </div>
     )
 }
-
-LastUpdated.propsType = {
-    time: PropsType.string.isRequired,
-}
-
 export default React.memo(LastUpdated)

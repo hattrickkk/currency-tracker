@@ -1,16 +1,15 @@
-import React, { ChangeEvent } from 'react'
-import PropsType from 'prop-types'
+import { ChangeEvent } from 'react'
 
 import * as styles from '@ui/input/style.module.scss'
 
-type PropsType = {
+type Props = {
     placeholder: string
     id: string
     value: string
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-function Input({ placeholder, id, value, onChange }: PropsType) {
+function Input({ placeholder, id, value, onChange }: Props) {
     return (
         <input
             className={styles.input}
@@ -22,11 +21,6 @@ function Input({ placeholder, id, value, onChange }: PropsType) {
             onChange={onChange}
         />
     )
-}
-
-Input.propsType = {
-    placeholder: PropsType.string.isRequired,
-    id: PropsType.string.isRequired,
 }
 
 export default Input
