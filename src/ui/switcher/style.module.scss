@@ -1,4 +1,5 @@
 @import '@styles/colors.scss';
+@import '@styles/sizes.scss';
 
 .switcher{
 	label{
@@ -51,7 +52,7 @@
 	}
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: $SMALL_TABLET) {
 	.switcher {
 		transform: scale(1.5);
 	}

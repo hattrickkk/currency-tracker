@@ -37,7 +37,7 @@
 			height: 60px;
 			display: block;
 			border-radius: 100%;
-			margin: 0 15px 0 0;
+			margin-right: 5px;
 
 			&::before, 
 			&::after{
@@ -58,7 +58,7 @@
 
 			&:hover::after,
 			&:hover::before{
-					background-color: $LIGHT_GREEN;
+				background-color: $LIGHT_GREEN;
 			}
 
 			&::after {
@@ -83,16 +83,12 @@
 		color:  $LIGHT_GRAY;
 
 		&:not(:last-child){
-			margin: 0 0 45px 0;
+			margin-bottom: 45px;
 		}
 
 		span{
 			font-size: 24px;
-			margin:  0 0 20px 0;
+			margin-bottom: 20px;
 		}
 	}
 }
-
-// body{
-// 	overflow: hidden;
-// }
