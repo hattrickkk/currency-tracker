@@ -5,7 +5,7 @@ import { Index } from '@customTypes/currency'
 import currencies from '@mockData/currency'
 import CurrencyCard from '@ui/currencyCard'
 
-import * as styles from '@components/cardsContainer/style.module.scss'
+import * as styles from './style.module.scss'
 
 type Props = {
     elements: (string | Index)[]

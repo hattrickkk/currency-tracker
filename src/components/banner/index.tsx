@@ -1,7 +1,7 @@
 import bannerLogo from '@assets/bannerLogo.svg'
 
-import * as styles from '@components/banner/style.module.scss'
 import * as global from '@styles/global.module.scss'
+import * as styles from './style.module.scss'
 
 function Banner() {
     return (

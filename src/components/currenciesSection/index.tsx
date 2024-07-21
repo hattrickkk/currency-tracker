@@ -4,8 +4,8 @@ import INDEXES from '@constants/indexesData'
 import currencies from '@mockData/currency'
 import Title from '@ui/title'
 
-import * as styles from '@components/currenciesSection/style.module.scss'
 import * as global from '@styles/global.module.scss'
+import * as styles from './style.module.scss'
 
 function CurrenciesSection() {
     return (

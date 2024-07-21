@@ -9,8 +9,8 @@ import Logo from '@ui/logo'
 import Switcher from '@ui/switcher'
 import clsx from 'clsx'
 
-import * as styles from '@components/header/style.module.scss'
 import * as global from '@styles/global.module.scss'
+import * as styles from './style.module.scss'
 
 function Header() {
     const { isOpen, openMenu, closeMenu } = useContext<BurgerMenuContextType>(BurgerMenuContext)

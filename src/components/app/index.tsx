@@ -1,10 +1,8 @@
 import Banner from '@components/banner'
-import CardsContainer from '@components/cardsContainer'
 import CurrenciesSection from '@components/currenciesSection'
 import Footer from '@components/footer'
 import Header from '@components/header'
 import Popup from '@components/popup'
-import CurrencyCard from '@ui/currencyCard'
 import LastUpdated from '@ui/lastUpdated'
 
 import * as global from '@styles/global.module.scss'

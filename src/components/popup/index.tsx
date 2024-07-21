@@ -5,7 +5,7 @@ import latest from '@mockData/latest'
 import Input from '@ui/input'
 import clsx from 'clsx'
 
-import * as styles from '@components/popup/style.module.scss'
+import * as styles from './style.module.scss'
 
 const portal = document.getElementById('portal')
 

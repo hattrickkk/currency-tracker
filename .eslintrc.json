@@ -50,10 +50,10 @@
         "no-unused-vars": "off",
         "no-restricted-globals": "off",
         "react/require-default-props": "off",
-        "jsx-a11y/no-noninteractive-element-interactions" : "off",
+        "jsx-a11y/no-noninteractive-element-interactions": "off",
         "camelcase": "off",
         "jsx-a11y/label-has-associated-control": "off",
-        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+        "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
         "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts", ".jsx", ".js"] }],
         "import/extensions": [
             "error",
@@ -71,9 +71,9 @@
             {
                 "groups": [
                     ["^react", "^@?\\w"],
-                    ["^(@|components|styles|assets|ui|constants|pages|utils)(/.*|$)"],
+                    ["^(@|assets|components|constants|contexts|customTypes|mockData|pages|ui|utils)(/.*|$)"],
                     ["^\\."],
-                    ["^.+\\.s?css$"]
+                    ["^@styles/.*\\.scss$", "^.+\\.s?css$"]
                 ]
             }
         ],

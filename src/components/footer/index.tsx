@@ -3,8 +3,8 @@ import FOOTER_MENU_ITEMS from '@constants/footerMenuItems'
 import LinkItem from '@ui/linkItem'
 import Logo from '@ui/logo'
 
-import * as styles from '@components/footer/style.module.scss'
 import * as global from '@styles/global.module.scss'
+import * as styles from './style.module.scss'
 
 function Footer() {
     const navigationClickHandler = (e: React.MouseEvent<HTMLElement>) => {
