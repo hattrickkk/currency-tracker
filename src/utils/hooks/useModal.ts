@@ -2,18 +2,18 @@ import { useCallback, useState } from 'react'
 
 type UseModal = {
     isOpen: boolean
-    closeMenu: VoidFunction
-    openMenu: VoidFunction
+    close: VoidFunction
+    open: VoidFunction
 }
 
 const useModal = (): UseModal => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
-    const closeMenu = useCallback(() => setIsOpen(false), [])
-    const openMenu = useCallback(() => setIsOpen(true), [])
+    const close = useCallback(() => setIsOpen(false), [])
+    const open = useCallback(() => setIsOpen(true), [])
     return {
         isOpen,
-        closeMenu,
-        openMenu,
+        close,
+        open,
     }
 }
 

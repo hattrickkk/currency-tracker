@@ -12,7 +12,7 @@ import * as global from '@styles/global.module.scss'
 import * as styles from './style.module.scss'
 
 function Header() {
-    const { isOpen, closeMenu, openMenu } = useModal()
+    const { isOpen, close: closeMenu, open: openMenu } = useModal()
     const navigate = useNavigate()
     const location = useLocation()
 
@@ -35,7 +35,7 @@ function Header() {
                         <Logo />
                     </div>
                     <div className={styles.separator} />
-                    <nav className={isOpen ? clsx([styles.active, styles.header__nav]) : styles.header__nav}>
+                    <nav className={clsx(styles.header__nav, isOpen && styles.active)}>
                         <ul className={styles.header__menu}>
                             {HEADER_MENU_ITEMS.map(({ path, title }) => (
                                 <LinkItem
@@ -50,7 +50,7 @@ function Header() {
                         <Switcher />
                     </nav>
                     <div
-                        className={isOpen ? clsx([styles.active, styles.header__burger]) : styles.header__burger}
+                        className={clsx(styles.header__burger, isOpen && styles.active)}
                         onClick={burgerMenuClickHandler}
                     >
                         <span />
