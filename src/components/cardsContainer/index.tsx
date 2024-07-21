@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import CURRENCIES_SYMBOLS from '@constants/currenciesSymbols'
-import CurrentCurrencyContext from '@contexts/currentCurrencyContext'
+import popupContext from '@contexts/popupContext'
 import { Index } from '@customTypes/currency'
 import currencies from '@mockData/currency'
 import CurrencyCard from '@ui/currencyCard'
@@ -13,7 +13,7 @@ type Props = {
 }
 
 function CardsContainer({ elements, type }: Props) {
-    const { setCurrentCurrency, openPopup } = useContext(CurrentCurrencyContext)
+    const { setCurrentCurrency, openPopup } = useContext(popupContext)
 
     return (
         <div className={styles.cardsContainer}>

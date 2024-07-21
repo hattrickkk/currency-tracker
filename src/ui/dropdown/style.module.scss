@@ -1,0 +1,83 @@
+@import '@styles/colors.scss';
+
+.dropdown{
+	width: 150px;
+	font-size: 24px;
+	position: relative;
+	color: $LIGHT_GRAY;
+
+	.button,
+	.itemsWrapper,
+	.item {
+		border-radius: 10px;
+		transition: all 0.3s ease;
+	}
+
+	.button{
+		position: relative;
+		cursor: pointer;
+		padding: 13px;
+		border: 2px solid $CURRENCY_CARD_STROKE;
+
+		&:hover{
+			background-color: rgba($CURRENCY_CARD_STROKE, 0.4);
+		}
+
+		&::before{
+			content: '';
+			position: absolute;
+			right: 15px;
+			top: 22px;
+			border: 8px solid transparent;
+			border-top: 10px solid $LIGHT_GREEN;
+			transition: all 0.3s ease;
+		}
+
+
+		&.active {
+			background-color: rgba($CURRENCY_CARD_STROKE, 0.4);
+
+			&::before{
+				transform: scaleY(-1);
+				top: 13px;
+			}
+		}
+	}
+
+	.itemsWrapper{
+		background-color: $BLACK;
+		border: 2px solid $CURRENCY_CARD_STROKE;
+		margin-top: 8px;
+		position: absolute;
+		width: 100%;
+		overflow-y: scroll;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+		visibility: hidden;
+		max-height: 0;
+		transition: all 0.3s ease;
+
+		&.active {
+			visibility: visible;
+			max-height: 242px;
+		}
+
+		.items {	
+			padding: 8px;
+			background-color: rgba($CURRENCY_CARD_STROKE, 0.4);
+			
+			.item {
+				padding: 10px;
+				cursor: pointer;
+
+				&:hover{
+					background-color: rgba($CURRENCY_CARD_STROKE, 0.4);
+				}
+	
+				&:not(:last-child) {
+					margin-bottom: 8px;
+				}
+			}
+		}
+	}
+}

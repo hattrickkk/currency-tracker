@@ -1,9 +1,9 @@
 import { CurrentCurrency } from '@customTypes/currency'
 
-export type CurrentCurrencyContextType = {
+export type PopupContextType = {
     currentCurrency: CurrentCurrency
     setCurrentCurrency: React.Dispatch<React.SetStateAction<CurrentCurrency>>
     isPopupOpen: boolean
-    openPopup: () => void
-    closePopup: () => void
+    openPopup: VoidFunction
+    closePopup: VoidFunction
 }

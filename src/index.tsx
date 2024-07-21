@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from '@components/app'
-import CurrentCurrencyContextProvider from '@components/currentCurrencyContextProvider'
+import PopupContextProvider from '@components/popupContextProvider'
 
 import '@styles/nullStyle.scss'
 
@@ -10,10 +10,10 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(
     <React.StrictMode>
-        <CurrentCurrencyContextProvider>
+        <PopupContextProvider>
             <BrowserRouter>
                 <App />
             </BrowserRouter>
-        </CurrentCurrencyContextProvider>
+        </PopupContextProvider>
     </React.StrictMode>
 )

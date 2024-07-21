@@ -1,71 +1,90 @@
-import { ChangeEvent, useContext, useState } from 'react'
+import { ChangeEvent, useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import CurrentCurrencyContext from '@contexts/currentCurrencyContext'
+import { INIT_CURRENCY, INPUT_FROM_ID, INPUT_TO_ID } from '@constants/magicValues'
+import PopupContext from '@contexts/popupContext'
+import { CurrencyCode } from '@customTypes/currency'
 import latest from '@mockData/latest'
+import Dropdown from '@ui/dropdown'
 import Input from '@ui/input'
+import convertCurrency from '@utils/convertCurrency'
+import useOutsidePopupClick from '@utils/hooks/useOutsidePopupClick'
 import clsx from 'clsx'
 
 import * as styles from './style.module.scss'
 
-const portal = document.getElementById('portal')
-
 function Popup() {
-    const { currentCurrency, closePopup, isPopupOpen } = useContext(CurrentCurrencyContext)
+    const { currentCurrency, closePopup, isPopupOpen } = useContext(PopupContext)
+    const [selectedCurrency, setSelectedCurrency] = useState<CurrencyCode>(INIT_CURRENCY)
 
     const [firstInputValue, setFirstInputValue] = useState('0')
     const [secondInputValue, setSecondInputValue] = useState('0')
 
-    const onCurrentCurrencyFirstInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-        const valueToConvert = 'USD'
+    const popupBtnClickHandler = useCallback(() => {
+        closePopup()
+        setFirstInputValue('0')
+        setSecondInputValue('0')
+    }, [])
 
-        setFirstInputValue(e.currentTarget.value)
+    const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+        if (e.target.id === INPUT_FROM_ID) {
+            setFirstInputValue(e.currentTarget.value)
+            setSecondInputValue(
+                convertCurrency(
+                    latest.data[currentCurrency.code].value,
+                    latest.data[selectedCurrency].value,
+                    e.currentTarget.value
+                )
+            )
+        } else {
+            setFirstInputValue(
+                convertCurrency(
+                    latest.data[selectedCurrency].value,
+                    latest.data[currentCurrency.code].value,
+                    e.currentTarget.value
+                )
+            )
+            setSecondInputValue(e.currentTarget.value)
+        }
+    }
+
+    const popupRef = useRef<HTMLInputElement>(null)
+    useOutsidePopupClick(popupRef, closePopup, isPopupOpen, styles.popup)
+
+    useEffect(() => {
         setSecondInputValue(
-            String(
-                (Number(e.currentTarget.value) * Number(latest.data[valueToConvert].value)) /
-                    Number(latest.data[currentCurrency.code].value)
+            convertCurrency(
+                latest.data[currentCurrency.code].value,
+                latest.data[selectedCurrency].value,
+                firstInputValue
             )
         )
-    }
-    const onCurrentCurrencySecondInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-        const valueToConvert = 'USD'
-        setSecondInputValue(e.currentTarget.value)
-        setFirstInputValue(
-            String(
-                (Number(e.currentTarget.value) * Number(latest.data[currentCurrency.code].value)) /
-                    Number(latest.data[valueToConvert].value)
-            )
-        )
-    }
+    }, [selectedCurrency])
 
     return createPortal(
-        <div className={isPopupOpen ? clsx([styles.popup, styles.active]) : styles.popup}>
-            <div className={styles.popup__wrapper}>
-                <div className={styles.popup__btn} onClick={closePopup}>
-                    <span />
+        <div className={clsx(styles.popup, isPopupOpen && styles.active)}>
+            <div className={clsx(styles.wrapper, isPopupOpen && styles.active)} ref={popupRef}>
+                <div className={styles.btn}>
+                    <span onClick={popupBtnClickHandler} />
                 </div>
-                <div className={styles.popup__inner}>
-                    <label className={styles.popup__label} htmlFor={currentCurrency.code}>
-                        <span>{currentCurrency.name}</span>
-                        <Input
-                            placeholder='Currency'
-                            id={currentCurrency.code}
-                            value={firstInputValue}
-                            onChange={onCurrentCurrencyFirstInputChange}
-                        />
-                    </label>
-                    <label className={styles.popup__label} htmlFor='USD'>
-                        <span>US Dollar</span>
-                        <Input
-                            placeholder='US Dollar'
-                            id='USD'
-                            value={secondInputValue}
-                            onChange={onCurrentCurrencySecondInputChange}
-                        />
-                    </label>
+                <div className={styles.inner}>
+                    <div className={styles.row}>
+                        <div className={styles.title}>
+                            <p>{currentCurrency.name}</p>
+                        </div>
+                        <Input id={INPUT_FROM_ID} value={firstInputValue} onChange={onInputChange} />
+                    </div>
+
+                    <div className={styles.row}>
+                        <div className={styles.title}>
+                            <p>Convert to</p>
+                            <Dropdown selectedCurrency={selectedCurrency} setSelectedCurrency={setSelectedCurrency} />
+                        </div>
+                        <Input id={INPUT_TO_ID} value={secondInputValue} onChange={onInputChange} />
+                    </div>
                 </div>
             </div>
         </div>,
-        portal
+        document.body
     )
 }
 
