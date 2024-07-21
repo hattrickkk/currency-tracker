@@ -8,6 +8,10 @@ body{
 	font-family: "Poppins";
 	background-color: $BLACK;
 	color: $WHITE;
+
+	&.lock{
+		overflow: hidden;
+	}
 }
 
 .wrapper {

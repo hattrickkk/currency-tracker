@@ -1,28 +1,31 @@
-import { useCallback, useContext } from 'react'
+import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import HEADER_MENU_ITEMS from '@constants/headerMenuItems'
 import * as paths from '@constants/paths'
-import BurgerMenuContext from '@contexts/burgerMenuContext'
-import { BurgerMenuContextType } from '@customTypes/context'
 import LinkItem from '@ui/linkItem'
 import Logo from '@ui/logo'
 import Switcher from '@ui/switcher'
+import useModal from '@utils/hooks/useModal'
 import clsx from 'clsx'
 
 import * as global from '@styles/global.module.scss'
 import * as styles from './style.module.scss'
 
 function Header() {
-    const { isOpen, openMenu, closeMenu } = useContext<BurgerMenuContextType>(BurgerMenuContext)
+    const { isOpen, closeMenu, openMenu } = useModal()
     const navigate = useNavigate()
     const location = useLocation()
 
     const burgerMenuClickHandler = () => (isOpen ? closeMenu() : openMenu())
 
-    const clickLogoHandler = useCallback(() => {
+    const clickLogoHandler = () => {
         if (isOpen) closeMenu()
         if (location.pathname !== paths.HOME) navigate(paths.HOME)
-    }, [isOpen, location])
+    }
+
+    useEffect(() => {
+        isOpen ? document.body.classList.add(global.lock) : document.body.classList.remove(global.lock)
+    }, [isOpen])
 
     return (
         <header className={styles.header}>
@@ -34,19 +37,17 @@ function Header() {
                     <div className={styles.separator} />
                     <nav className={isOpen ? clsx([styles.active, styles.header__nav]) : styles.header__nav}>
                         <ul className={styles.header__menu}>
-                            {HEADER_MENU_ITEMS.map(el => (
+                            {HEADER_MENU_ITEMS.map(({ path, title }) => (
                                 <LinkItem
-                                    key={el.path}
-                                    path={el.path}
-                                    title={el.title}
+                                    key={path}
+                                    path={path}
+                                    title={title}
                                     className={styles.header__item}
                                     onClick={closeMenu}
                                 />
                             ))}
                         </ul>
-                        <div>
-                            <Switcher />
-                        </div>
+                        <Switcher />
                     </nav>
                     <div
                         className={isOpen ? clsx([styles.active, styles.header__burger]) : styles.header__burger}
