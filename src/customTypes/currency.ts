@@ -26,3 +26,19 @@ export type CurrentCurrency = {
     name: string
     code: string
 }
+
+export type LatestData = {
+    code: string
+    value: number
+}
+
+export type Latest = {
+    meta: {
+        last_updated_at: string
+    }
+    data: {
+        [key: string]: LatestData
+    }
+}
+
+export type CurrencyCode = LatestData['code']

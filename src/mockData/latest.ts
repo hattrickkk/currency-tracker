@@ -1,18 +1,4 @@
-import { string } from 'prop-types'
-
-type LatestData = {
-    code: string
-    value: number
-}
-
-type Latest = {
-    meta: {
-        last_updated_at: string
-    }
-    data: {
-        [key: string]: LatestData
-    }
-}
+import { Latest } from '@customTypes/currency'
 
 const latest: Latest = {
     meta: {
