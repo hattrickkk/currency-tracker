@@ -12,6 +12,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'public', 'index.html') }),
         new MiniCssExtractPlugin(),
+        require('autoprefixer')
     ],
     module: {
         strictExportPresence: true,
@@ -41,9 +42,22 @@ module.exports = {
                             },
                         },
                     },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            postcssOptions: {
+                                plugins: ['autoprefixer']
+                            }
+                        }
+                    },
+                    'sass-loader',
                     'sass-loader',
                 ],
-
+                exclude: /node_modules/,
+            },
+            {
+                test: /\.(ico|svg|png|gif|jpg|jpeg)$/,
+                loader: 'file-loader',
                 exclude: /node_modules/,
             },
         ],
@@ -59,6 +73,9 @@ module.exports = {
             '@utils': path.resolve(__dirname, 'src/utils'),
             '@assets': path.resolve(__dirname, 'src/assets'),
             '@pages': path.resolve(__dirname, 'src/pages'),
+            '@contexts': path.resolve(__dirname, 'src/contexts'),
+            '@customTypes': path.resolve(__dirname, 'src/customTypes'),
+            '@mockData': path.resolve(__dirname, 'src/mockData'),
         },
     },
 }

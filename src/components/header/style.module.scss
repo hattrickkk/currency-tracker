@@ -1,0 +1,177 @@
+@import '@styles/colors.scss';
+@import '@styles/sizes.scss';
+
+.header{
+	background-color: $BLACK;
+	padding: 35px 0;
+	position: fixed;
+	z-index: 100;
+	width: 100%;
+
+	&__inner{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 10px;
+	}
+
+	&__logo {
+		max-width: 40px;
+		cursor: pointer;
+		z-index: 5;
+	}
+
+	.separator {
+		flex: 1 1 auto;
+	}
+	
+	&__nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex: 1 1 auto;
+		transition: 0.5s all ease;
+	}
+
+	&__menu {
+		display: flex;
+	}
+
+	&__item {
+		padding: 0px 38px;
+
+		a{
+			cursor: pointer;
+			color: $WHITE;
+			font-size: 20px;
+			transition: 0.2s linear;
+
+			&:hover {
+				color: $LIGHT_GREEN;
+			}
+
+			&:active {
+				color: $DARK_GREEN;
+			}
+		}
+	}
+
+	&__burger{
+		cursor: pointer;
+		display: none;
+		width: 50px;
+		height: 50px;
+		position: relative;
+		transition: all linear 0.2s;
+	
+		&:hover > span,
+		&:hover > span::before,
+		&:hover > span::after {
+			background-color: $LIGHT_GREEN;
+		}
+	
+		span,
+		span::before,
+		span::after {
+			width: 45px;
+			height: 2px;
+			border-radius: 10px;
+			background-color: $WHITE;
+			transition: all linear 0.2s;
+		}
+	
+		span::before,
+		span::after {
+			content: '';
+			position: absolute;
+		}
+
+		span {		
+			display: block;
+			transform: translateY(25px);
+
+			&::before{
+				display: block;
+				transform: translateY(-15px);
+			}
+
+			&::after{
+				display: block;
+				transform: translateY(15px);
+			}
+		}
+
+		&.active{
+			span{
+				background: rgba($BLACK, 0.0);
+
+				&::before {
+					transform: translateY(0px) rotate(-45deg);
+				}
+				
+				&::after {
+					transform: translateY(0px) rotate(45deg);
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $NORMAL_TABLET) {
+	.header {
+		padding: 30px 0;
+
+		&__item {
+			padding: 0px 23px;
+			a {
+				font-size: 18px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $SMALL_TABLET) {
+	.header {
+		padding: 20px 0;
+
+		.separator{
+			display: none;
+		}
+
+		&__nav {
+			position: absolute;
+			top: 0;
+			left: 100%;
+			width: 100vw;
+			height: 100vh;
+			background-color: $BLACK;
+			flex-direction: column;
+			justify-content: flex-start;
+			padding-top: 160px;
+
+			&.active{
+				left: 0;
+				overflow: auto;
+			}
+		}
+
+		&__menu {
+			padding-top: 30px;
+			flex-direction: column;
+			order: 1;
+			text-align: center;
+		}
+
+		&__item {
+			padding: 30px 0px;
+	
+			a {
+				font-size: 30px;
+			}
+		}
+		
+		&__burger {
+			display: block;
+		}
+	}
+}
