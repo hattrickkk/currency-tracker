@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react'
+import getLastUpdated from '@utils/getLastUpdated'
 
 import * as global from '@styles/global.module.scss'
-import * as styles from '@ui/lastUpdated/style.module.scss'
-import getLastUpdated from '@utils/getLastUpdated'
+import * as styles from './style.module.scss'
 
 type Props = {
     time: string

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import CURRENCIES_SECTION_NAMES from '@constants/currenciesSectionNames'
 import CURRENCIES_SYMBOLS from '@constants/currenciesSymbols'
 import popupContext from '@contexts/popupContext'
 import { Index } from '@customTypes/currency'
@@ -6,7 +7,6 @@ import currencies from '@mockData/currency'
 import CurrencyCard from '@ui/currencyCard'
 
 import * as styles from './style.module.scss'
-import CURRENCIES_SECTION_NAMES from '@constants/currenciesSectionNames'
 
 type Props = {
     elements: (string | Index)[]
