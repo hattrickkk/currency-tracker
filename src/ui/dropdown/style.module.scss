@@ -1,4 +1,5 @@
 @import '@styles/colors.scss';
+@import '@styles/sizes.scss';
 
 .dropdown{
 	width: 150px;
@@ -59,7 +60,7 @@
 
 		&.active {
 			visibility: visible;
-			max-height: 242px;
+			max-height: 218px;
 		}
 
 		.items {	
@@ -76,6 +77,48 @@
 	
 				&:not(:last-child) {
 					margin-bottom: 8px;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $SMALL_TABLET) {
+	.dropdown {
+		width: 125px;
+		font-size: 18px;
+
+		.button {
+			padding: 11px 11px 11px 14px;
+	
+			&::before {
+				right: 13px;
+				top: 16px;
+				border: 7px solid transparent;
+				border-top: 8px solid $LIGHT_GREEN;
+			}
+	
+			&.active {
+				&::before {
+					transform: scaleY(-1);
+					top: 10px;
+				}
+			}
+		}
+
+		.itemsWrapper {
+			&.active {
+				max-height: 202px;
+			}
+	
+			.items {
+				.item {
+					padding: 7px;
+					border-radius: 8px;
+
+					&:not(:last-child) {
+						margin-bottom: 6px;
+					}
 				}
 			}
 		}

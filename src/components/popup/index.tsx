@@ -1,6 +1,6 @@
 import { ChangeEvent, useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { INIT_CURRENCY, INPUT_FROM_ID, INPUT_TO_ID } from '@constants/magicValues'
+import { INIT_CURRENCY, INPUT_FROM_ID, INPUT_TO_ID, REGEX_FLOAT_NUMBERS } from '@constants/magicValues'
 import PopupContext from '@contexts/popupContext'
 import { CurrencyCode } from '@customTypes/currency'
 import latest from '@mockData/latest'
@@ -25,14 +25,14 @@ function Popup() {
         setSecondInputValue('0')
     }, [])
 
-    const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-        if (e.target.id === INPUT_FROM_ID) {
-            setFirstInputValue(e.currentTarget.value)
+    const onInputChange = ({ target: { value, id } }: ChangeEvent<HTMLInputElement>) => {
+        if (id === INPUT_FROM_ID) {
+            setFirstInputValue(prev => (REGEX_FLOAT_NUMBERS.test(value) ? value : prev))
             setSecondInputValue(
                 convertCurrency(
                     latest.data[currentCurrency.code].value,
                     latest.data[selectedCurrency].value,
-                    e.currentTarget.value
+                    REGEX_FLOAT_NUMBERS.test(value) ? value : firstInputValue
                 )
             )
         } else {
@@ -40,10 +40,10 @@ function Popup() {
                 convertCurrency(
                     latest.data[selectedCurrency].value,
                     latest.data[currentCurrency.code].value,
-                    e.currentTarget.value
+                    REGEX_FLOAT_NUMBERS.test(value) ? value : secondInputValue
                 )
             )
-            setSecondInputValue(e.currentTarget.value)
+            setSecondInputValue(prev => (REGEX_FLOAT_NUMBERS.test(value) ? value : prev))
         }
     }
 
@@ -71,7 +71,7 @@ function Popup() {
                         <div className={styles.title}>
                             <p>{currentCurrency.name}</p>
                         </div>
-                        <Input id={INPUT_FROM_ID} value={firstInputValue} onChange={onInputChange} />
+                        <Input id={INPUT_FROM_ID} value={firstInputValue} onChange={onInputChange} maxLength={10} />
                     </div>
 
                     <div className={styles.row}>
@@ -79,7 +79,7 @@ function Popup() {
                             <p>Convert to</p>
                             <Dropdown selectedCurrency={selectedCurrency} setSelectedCurrency={setSelectedCurrency} />
                         </div>
-                        <Input id={INPUT_TO_ID} value={secondInputValue} onChange={onInputChange} />
+                        <Input id={INPUT_TO_ID} value={secondInputValue} onChange={onInputChange} maxLength={10} />
                     </div>
                 </div>
             </div>

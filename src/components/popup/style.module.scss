@@ -23,13 +23,14 @@
 		background-color: $BLACK;
 		padding: 70px 30px 30px;
 		border-radius: 10px;
-		min-width: 600px;
+		max-width: 600px;
 		position: absolute;
 
 		.inner {
 			padding: 20px;
 			display: flex;
 			flex-direction: column;
+			min-width: 450px;
 
 			.title{
 				color: $LIGHT_GRAY;
@@ -63,7 +64,8 @@
 			display: block;
 			border-radius: 100%;
 			margin-right: 5px;
-			top: 30px;
+			top: 15px;
+			right: 10px;
 
 			&::before, 
 			&::after{
@@ -93,6 +95,76 @@
 
 			&::before {
 				transform: rotate(-45deg);
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $SMALL_TABLET) {
+.popup{
+	.wrapper {
+		padding: 50px 15px 15px;
+		margin: 15px;
+
+		.inner {
+			min-width: 400px;
+
+			.title {
+				font-size: 20px;
+				margin-bottom: 15px;
+
+				p {
+					margin-right: 15px;
+				}
+			}
+
+			.row:not(:last-child) {
+				margin-bottom: 30px;
+			}
+		}
+	}
+
+	.btn {
+		span {
+			width: 50px;
+			height: 50px;
+			top: 20px;
+
+			&::before,
+			&::after {
+				content: '';
+				width: 30px;
+				left: 10px;
+			}
+		}
+	}
+}
+}
+
+@media screen and (max-width: $LARGE_PHONE) {
+	.popup {
+		.wrapper {
+			padding: 30px 10px 10px;
+			margin: 15px;
+
+			.inner {
+				min-width: 100px;
+			}
+
+			.btn {
+				span {
+					width: 40px;
+					height: 40px;
+					right: 8px;
+					top: 15px;
+
+					&::before,
+					&::after {
+						content: '';
+						width: 25px;
+						left: 8px;
+					}
+				}
 			}
 		}
 	}
