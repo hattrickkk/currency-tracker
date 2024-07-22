@@ -17,9 +17,7 @@ function Dropdown({ selectedCurrency, setSelectedCurrency }: Props) {
     const { isOpen, close: closeDropdown, open: openDropdown } = useModal()
     const { isPopupOpen } = useContext(PopupContext)
 
-    const dropdownButtonClickHandler = () => {
-        isOpen ? closeDropdown() : openDropdown()
-    }
+    const dropdownButtonClickHandler = () => (isOpen ? closeDropdown() : openDropdown())
 
     const dropdownItemClickHandler = (code: CurrencyCode) => () => {
         setSelectedCurrency(code)

@@ -23,9 +23,10 @@ function Header() {
         if (location.pathname !== paths.HOME) navigate(paths.HOME)
     }
 
-    useEffect(() => {
-        isOpen ? document.body.classList.add(global.lock) : document.body.classList.remove(global.lock)
-    }, [isOpen])
+    useEffect(
+        () => (isOpen ? document.body.classList.add(global.lock) : document.body.classList.remove(global.lock)),
+        [isOpen]
+    )
 
     return (
         <header className={styles.header}>

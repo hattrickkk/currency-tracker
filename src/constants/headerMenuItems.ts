@@ -18,6 +18,6 @@ const HEADER_MENU_ITEMS: MenuItem[] = [
         path: paths.CONTSCTS,
         title: 'Contacts',
     },
-]
+] as MenuItem[]
 
 export default HEADER_MENU_ITEMS

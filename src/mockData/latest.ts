@@ -42,6 +42,6 @@ const latest: Latest = {
             value: 1,
         },
     },
-}
+} as Latest
 
 export default latest

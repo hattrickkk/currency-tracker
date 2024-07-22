@@ -1,4 +1,4 @@
-import { ChangeEvent, useCallback, useContext, useEffect, useRef, useState } from 'react'
+import { useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { INIT_CURRENCY, INPUT_FROM_ID, INPUT_TO_ID, REGEX_FLOAT_NUMBERS } from '@constants/magicValues'
 import PopupContext from '@contexts/popupContext'
@@ -25,7 +25,7 @@ function Popup() {
         setSecondInputValue('0')
     }, [])
 
-    const onInputChange = ({ target: { value, id } }: ChangeEvent<HTMLInputElement>) => {
+    const onInputChange = ({ target: { value, id } }: React.ChangeEvent<HTMLInputElement>) => {
         if (id === INPUT_FROM_ID) {
             setFirstInputValue(prev => (REGEX_FLOAT_NUMBERS.test(value) ? value : prev))
             setSecondInputValue(

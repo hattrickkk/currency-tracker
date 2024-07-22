@@ -1,11 +1,9 @@
-import { ChangeEvent } from 'react'
-
 import * as styles from './style.module.scss'
 
 type Props = {
     id: string
     value: string
-    onChange?: (e: ChangeEvent<HTMLInputElement>) => void
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
     maxLength: number
 }
 
