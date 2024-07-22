@@ -45,12 +45,11 @@
 			flex: 1 1 auto;
 			display: flex;
 			justify-content: space-between;
-			margin: 0 -35px;
+			gap: 70px;
 		}
 
 		&__menu{
 			font-family: "Inter";
-			padding: 0 35px;
 			font-weight: 400;
 
 			h4{
@@ -107,8 +106,8 @@
 				}
 			}
 
-			&__menu {
-				padding: 0 55px;
+			&__nav {
+				gap: 150px;
 			}
 
 		}
@@ -161,6 +160,14 @@
 	} 
 }
 
+@media screen and (max-width: $MEDIUM_TABLET) {
+	.footer .main{
+		&__nav {
+			gap: 120px;
+		}
+	}
+}
+
 @media screen and (max-width: $SMALL_TABLET) {
 	.footer {
 		.main {
@@ -177,7 +184,7 @@
 
 			&__nav {
 				flex-direction: column;
-				margin: 0;
+				gap: 8px;
 			}
 
 			&__title {
@@ -185,8 +192,6 @@
 			}
 
 			&__menu {
-				padding: 0;
-
 				h4 {
 					padding: 25px 0;
 					border-bottom: 2px solid $BLUE_GRAY;
@@ -281,7 +286,6 @@
 			}
 
 			&__menuItem {
-				margin: 0 0 20px 0;
 				margin-bottom: 20px;
 
 				a {

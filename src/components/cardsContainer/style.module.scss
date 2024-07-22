@@ -4,23 +4,19 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	margin: 0 -30px;
+	column-gap: $CARD_COLUMN_GAP_BIG;
+	row-gap: 45px;
 }
 
 @media screen and (max-width: $LARGE_TABLET) {
 	.cardsContainer {
-		margin: 0 -20px;
+		column-gap: $CARD_COLUMN_GAP_SMALL;
+		row-gap: 35px;
 	}
 }
 
 @media screen and (max-width: $NORMAL_TABLET) {
 	.cardsContainer {
-		margin: 0 -15px;
-	}
-}
-
-@media screen and (max-width: $MEDIUM_TABLET) {
-	.cardsContainer {
-		margin: 0;
+		row-gap: 25px;
 	}
 }

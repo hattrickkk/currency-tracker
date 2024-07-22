@@ -2,9 +2,7 @@
 @import '@styles/sizes.scss';
 
 .card{
-	padding: 0 30px;
-	margin-bottom: 55px;
-	flex: 1 1 50%;
+	flex: 0 1 calc(50% - $CARD_COLUMN_GAP_BIG);
 
 	&__inner{
 		cursor: pointer;
@@ -48,15 +46,6 @@
 	}
 }
 
-@media screen and (min-width: 751px) {
-	.card {
-		&:nth-last-child(odd) {
-			flex: 0 1 50%;
-		}
-	}
-}
-
-
 @media screen and (max-width: $SMALL_DESKTOP) {
 	.card {
 		&__info {
@@ -85,9 +74,7 @@
 
 @media screen and (max-width: $LARGE_TABLET) {				
 	.card {
-		padding: 0 20px;
-		margin-bottom: 40px;
-
+		flex: 0 1 calc(50% - $CARD_COLUMN_GAP_SMALL);
 		&__inner {
 			padding: 22px 20px;
 		}
@@ -110,8 +97,6 @@
 
 @media screen and (max-width: $NORMAL_TABLET) {
 	.card {
-		padding: 0 15px;
-		margin-bottom: 30px;
 
 		&__inner {
 			padding: 18px;

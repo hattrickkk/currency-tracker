@@ -2,10 +2,10 @@
 @import '@styles/sizes.scss';
 
 .popup{
-	background-color: rgba($LIGHT_GRAY, 0.3);
 	overflow: hidden;
 	position: fixed;
-	top: -100%;
+	top: 0;
+	pointer-events: none;
 	left: 0;
 	z-index: 100;
 	width: 100%;
@@ -16,7 +16,8 @@
 	transition: all ease 0.3s;
 
 	&.active{
-		top: 0;
+		pointer-events: all;
+		background-color: rgba($LIGHT_GRAY, 0.3);
 	}
 
 	.wrapper{
@@ -25,6 +26,13 @@
 		border-radius: 10px;
 		max-width: 600px;
 		position: absolute;
+		top: -100%;
+		transition: all ease 0.4s;
+
+		&.active{
+			top: 50%;
+			transform: translateY(-50%);
+		}
 
 		.inner {
 			padding: 20px;
