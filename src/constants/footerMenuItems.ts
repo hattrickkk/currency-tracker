@@ -40,6 +40,6 @@ const FOOTER_MENU_ITEMS: FooterMenuItem[] = [
             },
         ],
     },
-] as FooterMenuItem[]
+]
 
 export default FOOTER_MENU_ITEMS

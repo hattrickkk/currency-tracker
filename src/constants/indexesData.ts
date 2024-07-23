@@ -13,5 +13,5 @@ const INDEXES: Index[] = [
         value: '0.15%',
         picture: IFIX,
     },
-] as Index[]
+]
 export default INDEXES

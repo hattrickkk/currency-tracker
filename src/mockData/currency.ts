@@ -167,6 +167,6 @@ const currencies: CurrenciesResponse = {
             countries: [],
         },
     },
-} as CurrenciesResponse
+}
 
 export default currencies
