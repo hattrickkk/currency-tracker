@@ -1,7 +1,3 @@
 {
-    "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
-    "git": {
-        "branch": "feat/graph"
-    },
-    "alias": "currency-tracker-liard.vercel.app"
+    "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
