@@ -47,7 +47,10 @@ class FormChart extends PureComponent<Props, State> {
 
     addNewClickHandler = () => {
         this.setState(({ inputs, current }) => {
-            const newExchange = current.id === '' ? { ...current, id: new Date().toString() } : current
+            const newExchange =
+                current.id === '' || inputs.map(el => el.id).includes(current.id)
+                    ? { ...current, id: new Date().toString() }
+                    : current
             return { inputs: [...inputs, newExchange] }
         }, this.notifyAllAfterSetState())
 
