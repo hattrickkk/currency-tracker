@@ -1,4 +1,5 @@
 import Banner from '@components/banner'
+import ChartSection from '@components/chartSection'
 import CurrenciesSection from '@components/currenciesSection'
 import Footer from '@components/footer'
 import Header from '@components/header'
@@ -17,6 +18,9 @@ function App() {
 
             <CurrenciesSection />
             <Popup />
+
+            <ChartSection />
+
             <Footer />
         </div>
     )

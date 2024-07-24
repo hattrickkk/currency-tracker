@@ -1,0 +1,16 @@
+.form{
+	display: flex;
+	flex-direction: column;
+
+	.wrapper{
+		margin-bottom: 30px;
+	}
+
+	.buttons{
+		align-self: flex-end;
+
+		&>*:not(:last-child){
+			margin-right: 40px;
+		}
+	}
+}
