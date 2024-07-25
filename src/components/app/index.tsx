@@ -1,6 +1,7 @@
 import Banner from '@components/banner'
 import ChartSection from '@components/chartSection'
 import CurrenciesSection from '@components/currenciesSection'
+import CurrencyConversionBlock from '@components/currencyConversionBlock'
 import Footer from '@components/footer'
 import Header from '@components/header'
 import Popup from '@components/popup'
@@ -17,7 +18,9 @@ function App() {
             <LastUpdated time='2024-07-10T23:59:59Z' />
 
             <CurrenciesSection />
-            <Popup />
+            <Popup>
+                <CurrencyConversionBlock />
+            </Popup>
 
             <ChartSection />
 

@@ -1,7 +1,8 @@
 import { PureComponent } from 'react'
 import { Chart as ReactChart } from 'react-chartjs-2'
 import CHART_OPTIONS from '@constants/chartOptions'
-import { CHART_TYPE } from '@constants/magicValues'
+import { CHART_TYPE, DAYS_FOR_NOTIFICATION } from '@constants/magicValues'
+import NotificationModalContext from '@contexts/notificationModal'
 import { CandleStickChartData, ChartData, DataForChart } from '@customTypes/chart'
 import Observable, { Observer } from '@utils/observable'
 import { Chart, registerables } from 'chart.js'
@@ -19,6 +20,10 @@ type Props = {
 type State = ChartData
 
 class CandlestickChart extends PureComponent<Props, State> implements Observer {
+    static contextType = NotificationModalContext
+
+    context!: React.ContextType<typeof NotificationModalContext>
+
     constructor(props: Props) {
         super(props)
         this.state = {
@@ -51,6 +56,8 @@ class CandlestickChart extends PureComponent<Props, State> implements Observer {
                 },
             ],
         })
+
+        if (data.length === DAYS_FOR_NOTIFICATION) this.context.openModal()
     }
 
     render() {

@@ -1,3 +1,5 @@
+@import '@styles/sizes.scss';
+
 .form{
 	display: flex;
 	flex-direction: column;
@@ -12,5 +14,28 @@
 		&>*:not(:last-child){
 			margin-right: 40px;
 		}
+	}
+}
+
+@media screen and (max-width: $EXTRA_SMALL_TABLET) {
+.form {
+	.buttons {
+		align-self: stretch;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		button{
+			min-width: 265px
+		}
+
+		&>* {
+			flex: 1 1 50%;
+		}
+
+		&>*:not(:last-child) {
+			margin: 0 0 30px 0;
+		}
+	}
 	}
 }

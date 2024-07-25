@@ -14,3 +14,4 @@ export const REGEX_FLOAT_NUMBERS: RegExp = /^\d*\.?\d*$/
 export const CHART_TYPE: keyof ChartTypeRegistry = 'candlestick'
 
 export const MAX_DAYS: number = 60
+export const DAYS_FOR_NOTIFICATION: number = 30
