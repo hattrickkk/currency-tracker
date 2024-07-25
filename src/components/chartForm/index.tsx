@@ -1,11 +1,14 @@
 import { PureComponent } from 'react'
 import { MAX_DAYS } from '@constants/magicValues'
 import { CandleStickChartData } from '@customTypes/chart'
+import EXCHANGE_ARR from '@mockData/exchanges'
 import INIT_CANDLESTICK_CHART_VALUES from '@mockData/initCandlestickChart'
 import Button from '@ui/button'
 import InputsGroup from '@ui/inputsGroup'
+import Title from '@ui/title'
 import exchangeObjValidation from '@utils/exchangeObjValidation'
 import Observable from '@utils/observable'
+import clsx from 'clsx'
 
 import * as styles from './style.module.scss'
 
@@ -58,10 +61,19 @@ class FormChart extends PureComponent<Props, State> {
         if (this.state.inputs.length >= MAX_DAYS) this.setState({ disabled: true })
     }
 
+    generateClickHandler = (count: number) => () =>
+        this.props.observable.notifyAll(EXCHANGE_ARR.filter((_, i) => i < count))
+
     render() {
         const { inputs, disabled } = this.state
         return (
             <div className={styles.form}>
+                <div className={clsx(styles.buttons, styles.first)}>
+                    <Button value='Generate for 30 days' onClick={this.generateClickHandler(30)} />
+                    <Button value='Generate for 15 days' onClick={this.generateClickHandler(15)} />
+                </div>
+
+                <Title value='Add your own values' />
                 <div className={styles.wrapper}>
                     {inputs.length !== 0 &&
                         inputs.map(el => (
