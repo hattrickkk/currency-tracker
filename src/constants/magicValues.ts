@@ -12,3 +12,5 @@ export const POST_MERIDIEM: string = 'pm'
 export const REGEX_FLOAT_NUMBERS: RegExp = /^\d*\.?\d*$/
 
 export const CHART_TYPE: keyof ChartTypeRegistry = 'candlestick'
+
+export const MAX_DAYS: number = 60

@@ -1,8 +1,10 @@
 import { PureComponent } from 'react'
+import { MAX_DAYS } from '@constants/magicValues'
 import { CandleStickChartData } from '@customTypes/chart'
 import INIT_CANDLESTICK_CHART_VALUES from '@mockData/initCandlestickChart'
 import Button from '@ui/button'
 import InputsGroup from '@ui/inputsGroup'
+import exchangeObjValidation from '@utils/exchangeObjValidation'
 import Observable from '@utils/observable'
 
 import * as styles from './style.module.scss'
@@ -46,17 +48,14 @@ class FormChart extends PureComponent<Props, State> {
     }
 
     addNewClickHandler = () => {
-        this.setState(({ inputs, current }) => {
-            const newExchange =
-                current.id === '' || inputs.map(el => el.id).includes(current.id)
-                    ? { ...current, id: new Date().toString() }
-                    : current
-            return { inputs: [...inputs, newExchange] }
-        }, this.notifyAllAfterSetState())
+        this.setState(
+            ({ inputs, current }) => ({
+                inputs: [...inputs, exchangeObjValidation(current, inputs)],
+            }),
+            this.notifyAllAfterSetState()
+        )
 
-        if (this.state.inputs.length >= 7) {
-            this.setState({ disabled: true })
-        }
+        if (this.state.inputs.length >= MAX_DAYS) this.setState({ disabled: true })
     }
 
     render() {
