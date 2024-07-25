@@ -4,6 +4,7 @@ import CHART_OPTIONS from '@constants/chartOptions'
 import { CHART_TYPE, DAYS_FOR_NOTIFICATION } from '@constants/magicValues'
 import NotificationModalContext from '@contexts/notificationModal'
 import { CandleStickChartData, ChartData, DataForChart } from '@customTypes/chart'
+import EXCHANGE_ARR from '@mockData/exchanges'
 import Observable, { Observer } from '@utils/observable'
 import { Chart, registerables } from 'chart.js'
 import * as Financial from 'chartjs-chart-financial'
@@ -29,7 +30,12 @@ class CandlestickChart extends PureComponent<Props, State> implements Observer {
         this.state = {
             datasets: [
                 {
-                    data: [],
+                    data: EXCHANGE_ARR.map(el => {
+                        return {
+                            ...el,
+                            x: new Date(el.x),
+                        } as DataForChart
+                    }),
                 },
             ],
         }

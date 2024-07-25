@@ -20,11 +20,13 @@ class ChartSection extends PureComponent<Props> {
     render() {
         return (
             <NotificationModalContextProvider>
-                <div className={global.container}>
-                    <CandlestickChart observable={this.observable} />
-                    <FormChart observable={this.observable} />
-                    <NotificationModal />
-                </div>
+                <section>
+                    <div className={global.container}>
+                        <CandlestickChart observable={this.observable} />
+                        <FormChart observable={this.observable} />
+                        <NotificationModal />
+                    </div>
+                </section>
             </NotificationModalContextProvider>
         )
     }
