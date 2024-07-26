@@ -23,7 +23,7 @@ type State = ChartData
 class CandlestickChart extends PureComponent<Props, State> implements Observer {
     static contextType = NotificationModalContext
 
-    context!: React.ContextType<typeof NotificationModalContext>
+    context: React.ContextType<typeof NotificationModalContext>
 
     constructor(props: Props) {
         super(props)

@@ -20,7 +20,7 @@ type Props = {
 class InputsGroup extends PureComponent<Props, State> {
     state: State = INIT_CANDLESTICK_CHART_VALUES
 
-    addID = () => () => this.props.changeCurrentExchange({ ...this.state, id: new Date().toString() })
+    addID = () => this.props.changeCurrentExchange({ ...this.state, id: new Date().toString() })
 
     onChangeHandler = ({ target: { value, id } }: ChangeEvent<HTMLInputElement>) => {
         if (REGEX_FLOAT_NUMBERS.test(value)) {
@@ -29,7 +29,7 @@ class InputsGroup extends PureComponent<Props, State> {
                     ...prev,
                     [id]: value,
                 }),
-                this.addID()
+                this.addID
             )
         }
     }
@@ -40,7 +40,7 @@ class InputsGroup extends PureComponent<Props, State> {
                 ...prev,
                 x: value,
             }),
-            this.addID()
+            this.addID
         )
     }
 

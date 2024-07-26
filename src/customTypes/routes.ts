@@ -1,5 +1,7 @@
+import { ComponentType } from 'react'
+
 type Routes = {
     path: string
-    Elem: React.LazyExoticComponent<() => JSX.Element>
+    Elem: ComponentType
 }
 export default Routes
