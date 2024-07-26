@@ -29,7 +29,7 @@ class ErrorBoundary extends Component<Props, State> {
         return { hasError: true, errorMessage: error.message, errorName: error.name }
     }
 
-    reloadClicHandler = () => this.setState(initValue)
+    reloadClickHandler = () => this.setState(initValue)
 
     render() {
         if (this.state.hasError) {
@@ -39,8 +39,8 @@ class ErrorBoundary extends Component<Props, State> {
                         <div className={styles.wrapper}>
                             <h1 className={styles.title}>Oops, something went wrong</h1>
                             <p className={styles.text}>{`${this.state.errorName}: ${this.state.errorMessage}`}</p>
-                            <Link to={paths.HOME} onClick={this.reloadClicHandler}>
-                                <Button onClick={undefined} value='Click to reload page' />
+                            <Link to={paths.HOME} onClick={this.reloadClickHandler} className={styles.link}>
+                                Click to reload page
                             </Link>
                         </div>
                     </div>
