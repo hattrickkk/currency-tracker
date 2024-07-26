@@ -1,11 +1,11 @@
 @import '@styles/sizes.scss';
 
-.currencies{
-	margin-bottom: 50px;
+.chartSection{
+	margin-bottom: 100px;
 }
 
 @media screen and (max-width: $NORMAL_TABLET) {
-	.currencies {
-		margin-bottom: 40px;
+	.chartSection {
+		margin-bottom: 60px;
 	}
 }

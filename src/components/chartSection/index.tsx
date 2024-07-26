@@ -6,6 +6,7 @@ import NotificationModalContextProvider from '@components/notificationModalConte
 import Observable from '@utils/observable'
 
 import * as global from '@styles/global.module.scss'
+import * as styles from './style.module.scss'
 
 type Props = NonNullable<unknown>
 
@@ -20,7 +21,7 @@ class ChartSection extends PureComponent<Props> {
     render() {
         return (
             <NotificationModalContextProvider>
-                <section>
+                <section className={styles.chartSection}>
                     <div className={global.container}>
                         <CandlestickChart observable={this.observable} />
                         <FormChart observable={this.observable} />
