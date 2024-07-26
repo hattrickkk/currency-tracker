@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import Layout from '@components/layout'
 import * as paths from '@constants/paths'
 import { ROUTES, ROUTES_NOT_FOUND } from '@constants/routes'
+import Loader from '@ui/loader'
 
 function AppRoutes() {
     return (
@@ -17,7 +18,7 @@ function AppRoutes() {
                     key={path}
                     path={path}
                     element={
-                        <Suspense>
+                        <Suspense fallback={<Loader />}>
                             <Elem />
                         </Suspense>
                     }

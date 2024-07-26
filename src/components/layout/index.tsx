@@ -5,6 +5,7 @@ import ErrorBoundary from '@components/errorBoundary'
 import Footer from '@components/footer'
 import Header from '@components/header'
 import LastUpdated from '@ui/lastUpdated'
+import Loader from '@ui/loader'
 
 import * as styles from './styles.module.scss'
 
@@ -17,7 +18,7 @@ function Layout() {
                     <Banner />
                     <LastUpdated time='2024-07-10T23:59:59Z' />
                     <main className={styles.main}>
-                        <Suspense>
+                        <Suspense fallback={<Loader />}>
                             <Outlet />
                         </Suspense>
                     </main>
