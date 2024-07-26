@@ -1,3 +1,5 @@
+import { CHART_VALUES_COLOR, CHART_VALUES_PADDING, GRID_BORDER, GRID_COLOR } from "./magicValues"
+
 const CHART_OPTIONS = {
     responsive: true,
     maintainAspectRatio: false,
@@ -20,19 +22,19 @@ const CHART_OPTIONS = {
                 display: false,
             },
             grid: {
-                color: 'rgba(255, 255, 255, 0.1)',
-                borderColor: 'rgba(255, 255, 255, 0.3)',
+                color: GRID_COLOR,
+                borderColor: GRID_BORDER,
             },
         },
         y: {
             beginAtZero: false,
             ticks: {
-                padding: 10,
-                color: `#FFF`,
+                padding: CHART_VALUES_PADDING,
+                color: CHART_VALUES_COLOR,
             },
             grid: {
-                color: 'rgba(255, 255, 255, 0.1)',
-                borderColor: 'rgba(255, 255, 255, 0.3)',
+                color: GRID_COLOR,
+                borderColor: GRID_BORDER,
             },
             position: 'right' as const,
         },
