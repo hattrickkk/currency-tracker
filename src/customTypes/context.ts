@@ -12,4 +12,6 @@ export type NotificationModalContextType = {
     isModalOpen: boolean
     openModal: VoidFunction
     closeModal: VoidFunction
+    days: number
+    openModalWithDays: (count: number) => void
 }

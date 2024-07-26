@@ -1,4 +1,4 @@
-import { CHART_VALUES_COLOR, CHART_VALUES_PADDING, GRID_BORDER, GRID_COLOR } from "./magicValues"
+import { CHART_VALUES_COLOR, CHART_VALUES_PADDING, GRID_BORDER, GRID_COLOR } from './magicValues'
 
 const CHART_OPTIONS = {
     responsive: true,

@@ -32,7 +32,7 @@ class FormChart extends PureComponent<Props, State> {
         }
     }
 
-    notifyAllAfterSetState = () => () => this.props.observable.notifyAll(this.state.inputs)
+    notifyAllAfterSetState = () => () => this.props.observable.notifyAll(this.state.inputs, this.state.inputs.length)
 
     changeCurrentExchange = (exchange: CandleStickChartData) => this.setState({ current: exchange })
 
@@ -62,7 +62,10 @@ class FormChart extends PureComponent<Props, State> {
     }
 
     generateClickHandler = (count: number) => () =>
-        this.props.observable.notifyAll(EXCHANGE_ARR.filter((_, i) => i < count))
+        this.props.observable.notifyAll(
+            EXCHANGE_ARR.filter((_, i) => i < count),
+            count
+        )
 
     render() {
         const { inputs, disabled } = this.state

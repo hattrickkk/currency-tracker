@@ -8,7 +8,7 @@ import * as modal from '@styles/popup.module.scss'
 import * as styles from './style.module.scss'
 
 function NotificationModal() {
-    const { closeModal, isModalOpen } = useContext(NotificationModalContext)
+    const { closeModal, isModalOpen, days } = useContext(NotificationModalContext)
 
     const modalRef = useRef<HTMLInputElement>(null)
     useOutsidePopupClick(modalRef, closeModal, isModalOpen, modal.popup)
@@ -19,7 +19,9 @@ function NotificationModal() {
                 <div className={modal.btn}>
                     <span onClick={closeModal} />
                 </div>
-                <p className={styles.notification}>The chart was successfully built for 30 days!</p>
+                <p className={styles.notification}>
+                    The chart was successfully built for {days} {days === 1 ? 'day' : 'days'}!
+                </p>
             </div>
         </div>,
         document.body

@@ -1,7 +1,8 @@
+import { DAYS_FOR_NOTIFICATION, MAX_DAYS } from '@constants/magicValues'
 import { CandleStickChartData } from '@customTypes/chart'
 
 export type Observer = {
-    update(data: CandleStickChartData[]): void
+    update(data: CandleStickChartData[], count: number): void
 }
 
 class Observable {
@@ -15,8 +16,8 @@ class Observable {
         this.observers = this.observers.filter(obs => obs !== observer)
     }
 
-    notifyAll(data: CandleStickChartData[]) {
-        this.observers.forEach(observer => observer.update(data))
+    notifyAll(data: CandleStickChartData[], count: number) {
+        this.observers.forEach(observer => observer.update(data, count))
     }
 }
 

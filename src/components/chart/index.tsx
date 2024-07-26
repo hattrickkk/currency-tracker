@@ -1,7 +1,7 @@
 import { PureComponent } from 'react'
 import { Chart as ReactChart } from 'react-chartjs-2'
 import CHART_OPTIONS from '@constants/chartOptions'
-import { CHART_TYPE, DAYS_FOR_NOTIFICATION } from '@constants/magicValues'
+import { CHART_TYPE } from '@constants/magicValues'
 import NotificationModalContext from '@contexts/notificationModal'
 import { CandleStickChartData, ChartData, DataForChart } from '@customTypes/chart'
 import EXCHANGE_ARR from '@mockData/exchanges'
@@ -49,7 +49,7 @@ class CandlestickChart extends PureComponent<Props, State> implements Observer {
         this.props.observable.removeObserver(this)
     }
 
-    update(data: CandleStickChartData[]) {
+    update(data: CandleStickChartData[], count: number) {
         this.setState({
             datasets: [
                 {
@@ -63,7 +63,7 @@ class CandlestickChart extends PureComponent<Props, State> implements Observer {
             ],
         })
 
-        if (data.length === DAYS_FOR_NOTIFICATION) this.context.openModal()
+        if (count) this.context.openModalWithDays(count)
     }
 
     render() {
