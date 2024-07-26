@@ -1,4 +1,4 @@
-import { PureComponent } from 'react'
+import { createRef, PureComponent, RefObject, useRef } from 'react'
 import { MAX_DAYS } from '@constants/magicValues'
 import { CandleStickChartData } from '@customTypes/chart'
 import EXCHANGE_ARR from '@mockData/exchanges'
@@ -7,7 +7,9 @@ import Button from '@ui/button'
 import InputsGroup from '@ui/inputsGroup'
 import Title from '@ui/title'
 import exchangeObjValidation from '@utils/exchangeObjValidation'
+import highlightInput from '@utils/highlightInputs'
 import Observable from '@utils/observable'
+import resetInputs from '@utils/resetInputs'
 import clsx from 'clsx'
 
 import * as styles from './style.module.scss'
@@ -23,6 +25,8 @@ type State = {
 }
 
 class FormChart extends PureComponent<Props, State> {
+    inputsGroupRef: RefObject<InputsGroup> = createRef<InputsGroup>()
+
     constructor(props: Props) {
         super(props)
         this.state = {
@@ -51,12 +55,26 @@ class FormChart extends PureComponent<Props, State> {
     }
 
     addNewClickHandler = () => {
+        const ref = this.inputsGroupRef.current
+        if (this.inputsGroupRef.current) {
+            const o = ref.getValue('o')
+            const h = ref.getValue('h')
+            const l = ref.getValue('l')
+            const c = ref.getValue('c')
+
+            if (!+o || !+l || !+h || !+c) {
+                highlightInput(ref, o, h, l, c)
+                return
+            }
+        }
+
         this.setState(
             ({ inputs, current }) => ({
                 inputs: [...inputs, exchangeObjValidation(current, inputs)],
             }),
             this.notifyAllAfterSetState()
         )
+        resetInputs(ref)
 
         if (this.state.inputs.length >= MAX_DAYS) this.setState({ disabled: true })
     }
@@ -82,7 +100,7 @@ class FormChart extends PureComponent<Props, State> {
                         inputs.map(el => (
                             <InputsGroup values={el} disabled key={el.id} removeExchange={this.removeExchangeByID} />
                         ))}
-                    <InputsGroup changeCurrentExchange={this.changeCurrentExchange} first />
+                    <InputsGroup ref={this.inputsGroupRef} changeCurrentExchange={this.changeCurrentExchange} first />
                 </div>
                 <div className={styles.buttons}>
                     {inputs.length >= 1 && <Button value='Remove all' secondary onClick={this.removeAllExchanges} />}

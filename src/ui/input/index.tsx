@@ -1,3 +1,6 @@
+import { forwardRef, useImperativeHandle, useRef } from 'react'
+
+import * as global from '@styles/global.module.scss'
 import * as styles from './style.module.scss'
 
 type Props = {
@@ -8,7 +11,29 @@ type Props = {
     placeholder?: string
 }
 
-function Input({ value, id, onChange, maxLength, placeholder }: Props) {
+type InputHandle = {
+    highlightElem: VoidFunction
+    getValue: () => string
+    resetValue: VoidFunction
+}
+
+const Input = forwardRef(({ value, id, onChange, maxLength, placeholder }: Props, ref) => {
+    const inputRef = useRef<HTMLInputElement>(null)
+
+    useImperativeHandle(
+        ref,
+        () =>
+            ({
+                highlightElem: () => inputRef.current.classList.add(global.require),
+                getValue: () => {
+                    return inputRef.current.value
+                },
+                resetValue: () => {
+                    inputRef.current.value = '0'
+                },
+            }) as InputHandle
+    )
+
     return (
         <input
             className={styles.input}
@@ -18,8 +43,9 @@ function Input({ value, id, onChange, maxLength, placeholder }: Props) {
             value={value}
             onChange={onChange}
             maxLength={maxLength}
+            ref={inputRef}
         />
     )
-}
-
+})
+Input.displayName = 'Input'
 export default Input
