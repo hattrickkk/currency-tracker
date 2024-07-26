@@ -17,22 +17,14 @@ type InputHandle = {
     resetValue: VoidFunction
 }
 
-const Input = forwardRef(({ value, id, onChange, maxLength, placeholder }: Props, ref) => {
+const Input = forwardRef<InputHandle, Props>(({ value, id, onChange, maxLength, placeholder }: Props, ref) => {
     const inputRef = useRef<HTMLInputElement>(null)
 
-    useImperativeHandle(
-        ref,
-        () =>
-            ({
-                highlightElem: () => inputRef.current.classList.add(global.require),
-                getValue: () => {
-                    return inputRef.current.value
-                },
-                resetValue: () => {
-                    inputRef.current.value = '0'
-                },
-            }) as InputHandle
-    )
+    useImperativeHandle(ref, () => ({
+        highlightElem: () => inputRef.current.classList.add(global.require),
+        getValue: () => inputRef.current.value,
+        resetValue: () => (inputRef.current.value = '0'),
+    }))
 
     return (
         <input
