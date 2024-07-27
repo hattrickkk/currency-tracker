@@ -1,5 +1,7 @@
+import MapComponent from '@components/map'
+
 function BanksPage() {
-    return <div>BankPage</div>
+    return <MapComponent />
 }
 
 export default BanksPage
