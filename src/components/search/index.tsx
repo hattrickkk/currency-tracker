@@ -1,5 +1,5 @@
 import { PureComponent } from 'react'
-import seacrh from '@assets/search.svg'
+import seacrh from '@assets/icons/search.svg'
 import Input from '@ui/input'
 
 import * as global from '@styles/global.module.scss'
@@ -22,4 +22,3 @@ class Search extends PureComponent {
 }
 
 export default Search
-
