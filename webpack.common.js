@@ -5,14 +5,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = {
     entry: path.resolve(__dirname, 'src', 'index.tsx'),
     output: {
-        filename: '[name].bundle.js',
+        filename: '[name].[contenthash].js',
+        chunkFilename: '[name].[contenthash].js', 
         path: path.resolve(__dirname, 'build'),
         clean: true,
     },
     plugins: [
         new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'public', 'index.html') }),
         new MiniCssExtractPlugin(),
-        require('autoprefixer')
+        require('autoprefixer'),
     ],
     module: {
         strictExportPresence: true,
@@ -46,9 +47,9 @@ module.exports = {
                         loader: 'postcss-loader',
                         options: {
                             postcssOptions: {
-                                plugins: ['autoprefixer']
-                            }
-                        }
+                                plugins: ['autoprefixer'],
+                            },
+                        },
                     },
                     'sass-loader',
                     'sass-loader',

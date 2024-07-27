@@ -6,7 +6,13 @@
         "jest": true
     },
 
-    "extends": ["airbnb", "eslint:recommended", "plugin:react/recommended", "plugin:prettier/recommended"],
+    "extends": [
+        "airbnb",
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:prettier/recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
 
     "overrides": [
         {
@@ -46,6 +52,14 @@
         "react/no-array-index-key": "off",
         "jsx-a11y/no-static-element-interactions": "off",
         "no-undef": "off",
+        "no-return-assign": "off",
+        "react/static-property-placement" : "off",
+        "react/no-unused-class-component-methods": "off",
+        "react/no-unused-state": "off",
+        "react/state-in-constructor": "off",
+        "react/destructuring-assignment": "off",
+        "default-param-last": "off",
+        "@typescript-eslint/no-unused-vars": ["off"],
         "no-restricted-globals": "off",
         "react/require-default-props": "off",
         "jsx-a11y/no-noninteractive-element-interactions": "off",

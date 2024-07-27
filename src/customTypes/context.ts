@@ -7,3 +7,11 @@ export type PopupContextType = {
     openPopup: VoidFunction
     closePopup: VoidFunction
 }
+
+export type NotificationModalContextType = {
+    isModalOpen: boolean
+    openModal: VoidFunction
+    closeModal: VoidFunction
+    days: number
+    openModalWithDays: (count: number) => void
+}

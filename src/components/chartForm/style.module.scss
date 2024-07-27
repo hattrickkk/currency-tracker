@@ -1,0 +1,71 @@
+@import '@styles/sizes.scss';
+
+.form{
+	margin-top: 100px;
+	display: flex;
+	flex-direction: column;
+
+	.wrapper{
+		margin-bottom: 30px;
+	}
+
+	.buttons{
+		align-self: flex-end;
+
+		&.first {
+			margin-bottom: 40px;
+		}
+
+		&>*:not(:last-child){
+			margin-right: 40px;
+		}
+	}
+}
+
+@media screen and (max-width: $NORMAL_TABLET) {
+	.form {
+		.buttons {
+			&.first{
+				align-self: stretch;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+			
+				button {
+					min-width: 265px
+				}
+			
+				&>* {
+					flex: 1 1 100%;
+				}
+			
+				&>*:not(:last-child) {
+					margin: 0 0 30px 0;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $EXTRA_SMALL_TABLET) {
+.form {
+	.buttons {
+		align-self: stretch;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		button{
+			min-width: 265px
+		}
+
+		&>* {
+			flex: 1 1 50%;
+		}
+
+		&>*:not(:last-child) {
+			margin-bottom: 30px;
+		}
+	}
+	}
+}

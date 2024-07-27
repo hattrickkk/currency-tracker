@@ -33,30 +33,6 @@
 			top: 50%;
 			transform: translateY(-50%);
 		}
-
-		.inner {
-			padding: 20px;
-			display: flex;
-			flex-direction: column;
-			min-width: 450px;
-
-			.title{
-				color: $LIGHT_GRAY;
-				font-size: 24px;
-				margin-bottom: 20px;
-				display: flex;
-				align-items: center;
-
-				p{
-					margin-right: 20px;
-				}
-			}
-
-			.row:not(:last-child){
-				margin-bottom: 40px;
-			}
-
-		}
 	}
 
 	.btn{
@@ -113,23 +89,6 @@
 	.wrapper {
 		padding: 50px 15px 15px;
 		margin: 15px;
-
-		.inner {
-			min-width: 400px;
-
-			.title {
-				font-size: 20px;
-				margin-bottom: 15px;
-
-				p {
-					margin-right: 15px;
-				}
-			}
-
-			.row:not(:last-child) {
-				margin-bottom: 30px;
-			}
-		}
 	}
 
 	.btn {
@@ -154,10 +113,6 @@
 		.wrapper {
 			padding: 30px 10px 10px;
 			margin: 15px;
-
-			.inner {
-				min-width: 100px;
-			}
 
 			.btn {
 				span {

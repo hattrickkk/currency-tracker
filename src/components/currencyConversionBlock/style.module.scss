@@ -1,0 +1,50 @@
+@import '@styles/colors.scss';
+@import '@styles/sizes.scss';
+
+.inner {
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	min-width: 450px;
+
+	.title {
+		color: $LIGHT_GRAY;
+		font-size: 24px;
+		margin-bottom: 20px;
+		display: flex;
+		align-items: center;
+
+		p {
+			margin-right: 20px;
+		}
+	}
+
+	.row:not(:last-child) {
+		margin-bottom: 40px;
+	}
+}
+
+@media screen and (max-width: $SMALL_TABLET) {
+	.inner {
+		min-width: 400px;
+
+		.title {
+			font-size: 20px;
+			margin-bottom: 15px;
+
+			p {
+				margin-right: 15px;
+			}
+		}
+
+		.row:not(:last-child) {
+			margin-bottom: 30px;
+		}
+	}
+}
+
+@media screen and (max-width: $LARGE_PHONE) {
+	.inner {
+		min-width: 100px;
+	}	
+}
