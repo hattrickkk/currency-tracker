@@ -2,9 +2,9 @@ import { PureComponent } from 'react'
 import { Chart as ReactChart } from 'react-chartjs-2'
 import CHART_OPTIONS from '@constants/chartOptions'
 import { CHART_TYPE } from '@constants/magicValues'
-import NotificationModalContext from '@contexts/notificationModal'
 import { CandleStickChartData, ChartData, DataForChart } from '@customTypes/chart'
 import EXCHANGE_ARR from '@mockData/exchanges'
+import notify from '@utils/notify'
 import Observable, { Observer } from '@utils/observable'
 import { Chart, registerables } from 'chart.js'
 import * as Financial from 'chartjs-chart-financial'
@@ -21,10 +21,6 @@ type Props = {
 type State = ChartData
 
 class CandlestickChart extends PureComponent<Props, State> implements Observer {
-    static contextType = NotificationModalContext
-
-    context: React.ContextType<typeof NotificationModalContext>
-
     constructor(props: Props) {
         super(props)
         this.state = {
@@ -63,7 +59,7 @@ class CandlestickChart extends PureComponent<Props, State> implements Observer {
             ],
         })
 
-        if (count) this.context.openModalWithDays(count)
+        if (count) notify(count)
     }
 
     render() {
