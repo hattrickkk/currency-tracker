@@ -21,10 +21,13 @@ function Popup({ children }: Props) {
     useOutsidePopupClick(popupRef, closePopup, isPopupOpen, styles.popup)
 
     return createPortal(
-        <div className={clsx(styles.popup, isPopupOpen && styles.active, theme === THEMES.LIGHT && styles.light)}>
+        <div
+            className={clsx(styles.popup, isPopupOpen && styles.active, theme === THEMES.LIGHT && styles.light)}
+            data-cy='popup'
+        >
             <div className={clsx(styles.wrapper, isPopupOpen && styles.active)} ref={popupRef}>
                 <div className={styles.btn}>
-                    <span onClick={closePopup} />
+                    <span onClick={closePopup} data-cy='popup-close' />
                 </div>
                 {children}
             </div>

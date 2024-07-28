@@ -95,7 +95,7 @@ class FormChart extends PureComponent<Props, State> {
                 </div>
 
                 <Title value='Add your own values' />
-                <div className={styles.wrapper}>
+                <div className={styles.wrapper} data-cy='inputs-group-wrapper'>
                     {inputs.length !== 0 &&
                         inputs.map(el => (
                             <InputsGroup values={el} disabled key={el.id} removeExchange={this.removeExchangeByID} />

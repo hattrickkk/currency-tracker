@@ -79,7 +79,10 @@ class InputsGroup extends PureComponent<Props, State> {
         const { disabled, values, first } = this.props
         const { x } = this.state
         return (
-            <div className={clsx(styles.inputsGroup, this.context.theme === THEMES.LIGHT && styles.light)}>
+            <div
+                className={clsx(styles.inputsGroup, this.context.theme === THEMES.LIGHT && styles.light)}
+                data-cy='inputs-group'
+            >
                 <input
                     className={clsx(styles.date, disabled && styles.disabled)}
                     type='date'
@@ -107,7 +110,7 @@ class InputsGroup extends PureComponent<Props, State> {
                         ))}
                     </div>
                     {!first && (
-                        <div className={styles.button} onClick={this.removeHandle}>
+                        <div className={styles.button} onClick={this.removeHandle} data-cy='inputs-group-close'>
                             <span />
                         </div>
                     )}

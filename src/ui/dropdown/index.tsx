@@ -36,7 +36,11 @@ function Dropdown({ selectedCurrency, setSelectedCurrency }: Props) {
     }, [isPopupOpen])
 
     return (
-        <div className={clsx(styles.dropdown, theme === THEMES.LIGHT && styles.light)} ref={dropdownRef}>
+        <div
+            className={clsx(styles.dropdown, theme === THEMES.LIGHT && styles.light)}
+            ref={dropdownRef}
+            data-cy='dropdown'
+        >
             <div className={clsx(styles.button, isOpen && styles.active)} onClick={dropdownButtonClickHandler}>
                 {selectedCurrency}
             </div>

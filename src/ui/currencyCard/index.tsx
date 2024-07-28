@@ -20,7 +20,11 @@ function CurrencyCard({ name, code, picture, value, onClick }: Props) {
     const { data } = useContext<CurrencyContextType>(CurrencyContext)
 
     return (
-        <div className={clsx(styles.card, theme === THEMES.LIGHT && styles.light)} onClick={onClick}>
+        <div
+            className={clsx(styles.card, theme === THEMES.LIGHT && styles.light)}
+            onClick={onClick}
+            data-cy='currency-card'
+        >
             <div className={styles.card__inner}>
                 <div className={styles.card__img}>
                     <img src={picture} alt={code} />
