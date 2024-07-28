@@ -22,4 +22,4 @@ function Button({ value, onClick, secondary, disabled }: Props) {
     )
 }
 
-export default Button
+export default React.memo(Button)
