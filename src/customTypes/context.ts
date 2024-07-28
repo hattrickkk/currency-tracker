@@ -1,5 +1,5 @@
 import THEMES from '@constants/themes'
-import { CurrentCurrency } from '@customTypes/currency'
+import { CurrentCurrency, LatestValues } from '@customTypes/currency'
 
 export type PopupContextType = {
     currentCurrency: CurrentCurrency
@@ -14,3 +14,5 @@ export type ThemeContextType = {
     setDark: VoidFunction
     setLight: VoidFunction
 }
+
+export type CurrencyContextType = LatestValues
