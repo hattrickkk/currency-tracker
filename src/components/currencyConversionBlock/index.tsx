@@ -1,16 +1,21 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { INIT_CURRENCY, INPUT_FROM_ID, INPUT_TO_ID } from '@constants/magicValues'
+import THEMES from '@constants/themes'
 import PopupContext from '@contexts/popupContext'
+import ThemeContext from '@contexts/themeContext'
+import { ThemeContextType } from '@customTypes/context'
 import { CurrencyCode } from '@customTypes/currency'
 import latest from '@mockData/latest'
 import Dropdown from '@ui/dropdown'
 import Input from '@ui/input'
 import convertCurrency from '@utils/convertCurrency'
 import isFloat from '@utils/isFloat'
+import clsx from 'clsx'
 
 import * as styles from './style.module.scss'
 
 function CurrencyConversionBlock() {
+    const { theme } = useContext<ThemeContextType>(ThemeContext)
     const { currentCurrency, isPopupOpen } = useContext(PopupContext)
     const [selectedCurrency, setSelectedCurrency] = useState<CurrencyCode>(INIT_CURRENCY)
 
@@ -55,7 +60,7 @@ function CurrencyConversionBlock() {
     }, [isPopupOpen])
 
     return (
-        <div className={styles.inner}>
+        <div className={clsx(styles.inner, theme === THEMES.LIGHT && styles.light)}>
             <div className={styles.row}>
                 <div className={styles.title}>
                     <p>{currentCurrency.name}</p>

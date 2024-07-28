@@ -12,6 +12,11 @@ body{
 	&.lock{
 		overflow: hidden;
 	}
+
+	&.light {
+		background-color: $WHITE;
+		color: $BLACK;
+	}
 }
 
 .wrapper {

@@ -1,7 +1,10 @@
-import { useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import HEADER_MENU_ITEMS from '@constants/headerMenuItems'
 import * as paths from '@constants/paths'
+import THEMES from '@constants/themes'
+import ThemeContext from '@contexts/themeContext'
+import { ThemeContextType } from '@customTypes/context'
 import LinkItem from '@ui/linkItem'
 import Logo from '@ui/logo'
 import Switcher from '@ui/switcher'
@@ -12,6 +15,7 @@ import * as global from '@styles/global.module.scss'
 import * as styles from './style.module.scss'
 
 function Header() {
+    const { theme } = useContext<ThemeContextType>(ThemeContext)
     const { isOpen, close: closeMenu, open: openMenu } = useModal()
     const navigate = useNavigate()
     const location = useLocation()
@@ -27,9 +31,16 @@ function Header() {
         () => (isOpen ? document.body.classList.add(global.lock) : document.body.classList.remove(global.lock)),
         [isOpen]
     )
+    useEffect(
+        () =>
+            theme === THEMES.LIGHT
+                ? document.body.classList.add(global.light)
+                : document.body.classList.remove(global.light),
+        [theme]
+    )
 
     return (
-        <header className={styles.header}>
+        <header className={clsx(styles.header, theme === THEMES.LIGHT && styles.light)}>
             <div className={global.container}>
                 <div className={styles.header__inner}>
                     <div className={styles.header__logo} onClick={clickLogoHandler}>

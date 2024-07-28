@@ -116,3 +116,11 @@
 		}
 	}
 }
+
+.banner.light {
+	background: linear-gradient(225deg, $WHITE 0%, $BANNER_GREEN 60%, $WHITE 100%);
+
+	.banner__label {
+		color: $BLACK;
+	}
+}

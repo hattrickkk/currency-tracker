@@ -1,4 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import THEMES from '@constants/themes'
+import ThemeContext from '@contexts/themeContext'
+import { ThemeContextType } from '@customTypes/context'
+import clsx from 'clsx'
 
 import * as styles from '@ui/currencyCard/style.module.scss'
 
@@ -11,8 +15,9 @@ type Props = {
 }
 
 function CurrencyCard({ name, code, picture, value, onClick }: Props) {
+    const { theme } = useContext<ThemeContextType>(ThemeContext)
     return (
-        <div className={styles.card} onClick={onClick}>
+        <div className={clsx(styles.card, theme === THEMES.LIGHT && styles.light)} onClick={onClick}>
             <div className={styles.card__inner}>
                 <div className={styles.card__img}>
                     <img src={picture} alt={code} />

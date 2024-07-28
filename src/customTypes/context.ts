@@ -1,3 +1,4 @@
+import THEMES from '@constants/themes'
 import { CurrentCurrency } from '@customTypes/currency'
 
 export type PopupContextType = {
@@ -6,4 +7,10 @@ export type PopupContextType = {
     isPopupOpen: boolean
     openPopup: VoidFunction
     closePopup: VoidFunction
+}
+
+export type ThemeContextType = {
+    theme: THEMES
+    setDark: VoidFunction
+    setLight: VoidFunction
 }

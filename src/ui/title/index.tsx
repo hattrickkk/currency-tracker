@@ -1,4 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import THEMES from '@constants/themes'
+import ThemeContext from '@contexts/themeContext'
+import { ThemeContextType } from '@customTypes/context'
+import clsx from 'clsx'
 
 import * as styles from '@ui/title/style.module.scss'
 
@@ -7,7 +11,8 @@ type Props = {
 }
 
 function Title({ value }: Props) {
-    return <h3 className={styles.title}>{value}</h3>
+    const { theme } = useContext<ThemeContextType>(ThemeContext)
+    return <h3 className={clsx(styles.title, theme === THEMES.LIGHT && styles.light)}>{value}</h3>
 }
 
 export default React.memo(Title)

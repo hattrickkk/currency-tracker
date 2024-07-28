@@ -1,6 +1,8 @@
 import { ChangeEvent, createRef, PureComponent, RefObject } from 'react'
 import { REGEX_FLOAT_NUMBERS } from '@constants/magicValues'
 import PRICES_ARR from '@constants/price'
+import THEMES from '@constants/themes'
+import ThemeContext from '@contexts/themeContext'
 import { CandleStickChartData, Price } from '@customTypes/chart'
 import INIT_CANDLESTICK_CHART_VALUES from '@mockData/initCandlestickChart'
 import Input from '@ui/input'
@@ -27,6 +29,10 @@ type InputsRefs = {
 }
 
 class InputsGroup extends PureComponent<Props, State> {
+    static contextType = ThemeContext
+
+    context: React.ContextType<typeof ThemeContext>
+
     inputRefsObj: InputsRefs = {
         o: createRef<HTMLInputElement>(),
         l: createRef<HTMLInputElement>(),
@@ -73,7 +79,7 @@ class InputsGroup extends PureComponent<Props, State> {
         const { disabled, values, first } = this.props
         const { x } = this.state
         return (
-            <div className={styles.inputsGroup}>
+            <div className={clsx(styles.inputsGroup, this.context.theme === THEMES.LIGHT && styles.light)}>
                 <input
                     className={clsx(styles.date, disabled && styles.disabled)}
                     type='date'

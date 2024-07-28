@@ -22,3 +22,13 @@
 		font-size: 18px;
 	}
 }
+
+.input.light {
+	background-color: $LIGHT_GRAY;
+	border: 2px solid $GRAY;
+	color: $BLACK;
+
+	&:focus {
+		box-shadow: 0 0 20px rgba($GRAY, 0.4);
+	}
+}

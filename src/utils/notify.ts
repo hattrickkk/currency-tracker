@@ -1,16 +1,17 @@
 import toast from 'react-hot-toast'
+import { BLACK, CURRENCY_CARD_BACK, GRAY, GREEN, WHITE } from '@constants/magicValues'
 
-const notify = (days: number, idDark: boolean = false) => {
+const notify = (days: number, isDark: boolean) => {
     const str = `The chart was successfully built for ${days} ${days === 1 ? 'day' : 'days'}!`
 
     toast.success(str, {
         style: {
-            background: '#202025',
-            color: '#fff',
+            background: isDark ? CURRENCY_CARD_BACK : GRAY,
+            color: isDark ? WHITE : BLACK,
         },
         iconTheme: {
-            primary: '#00ce2c',
-            secondary: '#FFFAEE',
+            primary: GREEN,
+            secondary: WHITE,
         },
     })
 }

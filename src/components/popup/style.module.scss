@@ -132,3 +132,32 @@
 		}
 	}
 }
+
+.popup.light {
+	&.active {
+		background-color: rgba($BLACK, 0.5);
+	}
+
+	.wrapper {
+		background-color: $WHITE;
+	}
+
+	.btn {
+		span {
+			&::before,
+			&::after {
+				content: '';
+				background-color: $BLACK;
+			}
+
+			&:hover {
+				background-color: rgba($BLACK, 0.07);
+			}
+
+			&:hover::after,
+			&:hover::before {
+				background-color: $LIGHT_GREEN;
+			}
+		}
+	}
+}

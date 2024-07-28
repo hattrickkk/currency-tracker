@@ -1,5 +1,8 @@
 import React, { useContext, useEffect, useRef } from 'react'
+import THEMES from '@constants/themes'
 import PopupContext from '@contexts/popupContext'
+import ThemeContext from '@contexts/themeContext'
+import { ThemeContextType } from '@customTypes/context'
 import { CurrencyCode } from '@customTypes/currency'
 import CURRENCIES_NAMES_ARR from '@mockData/currenciesNames'
 import useModal from '@utils/hooks/useModal'
@@ -14,6 +17,7 @@ type Props = {
 }
 
 function Dropdown({ selectedCurrency, setSelectedCurrency }: Props) {
+    const { theme } = useContext<ThemeContextType>(ThemeContext)
     const { isOpen, close: closeDropdown, open: openDropdown } = useModal()
     const { isPopupOpen } = useContext(PopupContext)
 
@@ -32,7 +36,7 @@ function Dropdown({ selectedCurrency, setSelectedCurrency }: Props) {
     }, [isPopupOpen])
 
     return (
-        <div className={styles.dropdown} ref={dropdownRef}>
+        <div className={clsx(styles.dropdown, theme === THEMES.LIGHT && styles.light)} ref={dropdownRef}>
             <div className={clsx(styles.button, isOpen && styles.active)} onClick={dropdownButtonClickHandler}>
                 {selectedCurrency}
             </div>

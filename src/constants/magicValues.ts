@@ -18,5 +18,10 @@ export const DAYS_FOR_NOTIFICATION: number = 30
 
 export const GRID_COLOR: string = 'rgba(255, 255, 255, 0.1)'
 export const GRID_BORDER: string = 'rgba(255, 255, 255, 0.3)'
-export const CHART_VALUES_COLOR: string = '#FFF'
+export const GRAY: string = '#D9D9D9'
+export const CURRENCY_CARD_BACK: string = '#202025'
+export const GREEN: string = '#00BC4F'
+export const WHITE: string = '#fff'
+export const BLACK: string = '#030304'
+
 export const CHART_VALUES_PADDING: number = 10
