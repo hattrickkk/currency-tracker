@@ -1,15 +1,11 @@
-type ATM = {
-    id: number
-    latitude: number
-    longitude: number
-    currencies: string[]
-}
-const ATMS = [
+import { ATM } from '@customTypes/map'
+
+const ATMS: ATM[] = [
     {
         id: 1,
         latitude: 53.919444,
         longitude: 27.594722,
-        currencies: ['GBR', 'BTC', 'CAD'],
+        currencies: ['GBP', 'BTC', 'CAD'],
     },
     {
         id: 2,
@@ -33,7 +29,7 @@ const ATMS = [
         id: 5,
         latitude: 53.886689,
         longitude: 27.576,
-        currencies: ['GBR', 'AUD', 'JPY'],
+        currencies: ['GBP', 'AUD', 'JPY'],
     },
     {
         id: 6,
@@ -123,7 +119,7 @@ const ATMS = [
         id: 20,
         latitude: 53.889444,
         longitude: 27.543056,
-        currencies: ['USD', 'GBR', 'CNY'],
+        currencies: ['USD', 'GBP', 'CNY'],
     },
     {
         id: 21,
@@ -141,7 +137,7 @@ const ATMS = [
         id: 23,
         latitude: 53.915,
         longitude: 27.574444,
-        currencies: ['BTC', 'GBR', 'JPY'],
+        currencies: ['BTC', 'GBP', 'JPY'],
     },
     {
         id: 24,
@@ -195,7 +191,7 @@ const ATMS = [
         id: 32,
         latitude: 53.913056,
         longitude: 27.669167,
-        currencies: ['GBR', 'CAD', 'JPY'],
+        currencies: ['GBP', 'CAD', 'JPY'],
     },
     {
         id: 33,
@@ -207,7 +203,7 @@ const ATMS = [
         id: 34,
         latitude: 53.839444,
         longitude: 27.631667,
-        currencies: ['USD', 'GBR', 'BTC'],
+        currencies: ['USD', 'GBP', 'BTC'],
     },
     {
         id: 35,
@@ -231,7 +227,7 @@ const ATMS = [
         id: 38,
         latitude: 53.914167,
         longitude: 27.426389,
-        currencies: ['BTC', 'USD', 'GBR'],
+        currencies: ['BTC', 'USD', 'GBP'],
     },
     {
         id: 39,
@@ -243,19 +239,19 @@ const ATMS = [
         id: 40,
         latitude: 53.899167,
         longitude: 27.505833,
-        currencies: ['GBR', 'EUR', 'AUD'],
+        currencies: ['GBP', 'EUR', 'AUD'],
     },
     {
         id: 41,
         latitude: 53.858611,
         longitude: 27.463333,
-        currencies: ['GBR', 'AUD', 'ARS'],
+        currencies: ['GBP', 'AUD', 'ARS'],
     },
     {
         id: 42,
         latitude: 53.879167,
         longitude: 27.535556,
-        currencies: ['CAD', 'GBR', 'AUD'],
+        currencies: ['CAD', 'GBP', 'AUD'],
     },
     {
         id: 43,
@@ -267,13 +263,13 @@ const ATMS = [
         id: 44,
         latitude: 53.860833,
         longitude: 27.429683,
-        currencies: ['GBR', 'CNY', 'CAD'],
+        currencies: ['GBP', 'CNY', 'CAD'],
     },
     {
         id: 45,
         latitude: 53.845278,
         longitude: 27.457222,
-        currencies: ['GBR', 'CNY', 'CAD'],
+        currencies: ['GBP', 'CNY', 'CAD'],
     },
     {
         id: 46,
@@ -291,7 +287,7 @@ const ATMS = [
         id: 48,
         latitude: 53.862222,
         longitude: 27.444444,
-        currencies: ['GBR', 'BTC', 'CNY'],
+        currencies: ['GBP', 'BTC', 'CNY'],
     },
     {
         id: 49,
@@ -321,7 +317,7 @@ const ATMS = [
         id: 53,
         latitude: 53.844444,
         longitude: 27.533333,
-        currencies: ['ARS', 'GBR', 'AUD'],
+        currencies: ['ARS', 'GBP', 'AUD'],
     },
     {
         id: 54,
@@ -345,7 +341,7 @@ const ATMS = [
         id: 57,
         latitude: 53.928056,
         longitude: 27.626667,
-        currencies: ['AUD', 'GBR', 'USD'],
+        currencies: ['AUD', 'GBP', 'USD'],
     },
     {
         id: 58,
@@ -363,13 +359,13 @@ const ATMS = [
         id: 60,
         latitude: 53.891389,
         longitude: 27.56,
-        currencies: ['AUD', 'CNY', 'GBR'],
+        currencies: ['AUD', 'CNY', 'GBP'],
     },
     {
         id: 61,
         latitude: 53.878006,
         longitude: 27.596397,
-        currencies: ['GBR', 'JPY', 'CNY'],
+        currencies: ['GBP', 'JPY', 'CNY'],
     },
     {
         id: 62,
@@ -387,7 +383,7 @@ const ATMS = [
         id: 64,
         latitude: 53.938611,
         longitude: 27.684444,
-        currencies: ['EUR', 'ARS', 'GBR'],
+        currencies: ['EUR', 'ARS', 'GBP'],
     },
     {
         id: 65,
@@ -417,13 +413,13 @@ const ATMS = [
         id: 69,
         latitude: 53.892222,
         longitude: 27.578611,
-        currencies: ['GBR', 'JPY', 'EUR'],
+        currencies: ['GBP', 'JPY', 'EUR'],
     },
     {
         id: 70,
         latitude: 53.906944,
         longitude: 27.446389,
-        currencies: ['ARS', 'USD', 'GBR'],
+        currencies: ['ARS', 'USD', 'GBP'],
     },
     {
         id: 71,
@@ -441,7 +437,7 @@ const ATMS = [
         id: 73,
         latitude: 53.883889,
         longitude: 27.594167,
-        currencies: ['JPY', 'AUD', 'GBR'],
+        currencies: ['JPY', 'AUD', 'GBP'],
     },
     {
         id: 74,
@@ -501,7 +497,7 @@ const ATMS = [
         id: 83,
         latitude: 53.924722,
         longitude: 27.543889,
-        currencies: ['GBR', 'CAD', 'USD'],
+        currencies: ['GBP', 'CAD', 'USD'],
     },
     {
         id: 84,
@@ -519,7 +515,7 @@ const ATMS = [
         id: 86,
         latitude: 53.882222,
         longitude: 27.55,
-        currencies: ['AUD', 'CAD', 'GBR'],
+        currencies: ['AUD', 'CAD', 'GBP'],
     },
     {
         id: 87,
@@ -591,19 +587,19 @@ const ATMS = [
         id: 98,
         latitude: 53.948056,
         longitude: 27.718889,
-        currencies: ['BTC', 'GBR', 'CAD'],
+        currencies: ['BTC', 'GBP', 'CAD'],
     },
     {
         id: 99,
         latitude: 53.897778,
         longitude: 27.541944,
-        currencies: ['BTC', 'GBR', 'JPY'],
+        currencies: ['BTC', 'GBP', 'JPY'],
     },
     {
         id: 100,
         latitude: 53.895833,
         longitude: 27.563889,
-        currencies: ['BTC', 'CAD', 'GBR'],
+        currencies: ['BTC', 'CAD', 'GBP'],
     },
 ]
 

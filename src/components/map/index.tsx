@@ -1,9 +1,14 @@
 import { PureComponent } from 'react'
 import Map, { Marker } from 'react-map-gl'
 import markerImg from '@assets/dollarSign.svg'
+import MapContext from '@contexts/mapContext'
 import ATMS from '@mockData/map'
 
 class MapComponent extends PureComponent {
+    static contextType = MapContext
+
+    context: React.ContextType<typeof MapContext>
+
     render() {
         return (
             <Map
@@ -17,11 +22,13 @@ class MapComponent extends PureComponent {
                 mapStyle='mapbox://styles/mapbox/streets-v9'
             >
                 <>
-                    {ATMS.map(({ id, longitude, latitude }) => (
-                        <Marker key={id} longitude={longitude} latitude={latitude}>
-                            <img alt='markerImg' src={markerImg} />
-                        </Marker>
-                    ))}
+                    {ATMS.filter(({ currencies }) => currencies.includes(this.context.searchingCurrency)).map(
+                        ({ id, longitude, latitude }) => (
+                            <Marker key={id} longitude={longitude} latitude={latitude}>
+                                <img alt='markerImg' src={markerImg} />
+                            </Marker>
+                        )
+                    )}
                 </>
             </Map>
         )

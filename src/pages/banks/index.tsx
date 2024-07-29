@@ -1,7 +1,7 @@
-import MapComponent from '@components/map'
+import MapSection from '@components/mapSection'
 
 function BanksPage() {
-    return <MapComponent />
+    return <MapSection />
 }
 
 export default BanksPage

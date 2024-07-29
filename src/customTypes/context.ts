@@ -15,4 +15,9 @@ export type ThemeContextType = {
     setLight: VoidFunction
 }
 
+export type MapContextType = {
+    searchingCurrency: string
+    setSearchingCurrency: React.Dispatch<React.SetStateAction<string>>
+}
+
 export type CurrencyContextType = LatestValues
