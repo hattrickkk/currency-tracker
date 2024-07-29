@@ -101,6 +101,7 @@ class Search extends PureComponent<NonNullable<unknown>, State> {
                                             theme === THEMES.LIGHT && styles.light
                                         )}
                                         ref={this.completeRef}
+                                        data-cy='search-complete'
                                     >
                                         {filteredCurrencies.map(({ code }: CurrentCurrency) => (
                                             <div
