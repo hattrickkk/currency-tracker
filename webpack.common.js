@@ -1,20 +1,19 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const dotenv = require('dotenv')
-const webpack = require('webpack'); 
+const webpack = require('webpack')
+require('dotenv').config()
 
-const env = dotenv.config().parsed
-const envKeys = Object.keys(env).reduce((prev, next) => {
-    prev[`process.env.${next}`] = JSON.stringify(env[next])
-    return prev
-}, {})
+const definitions = {
+    'process.env.REACT_APP_MAPBOX_TOKEN': JSON.stringify(process.env.REACT_APP_MAPBOX_TOKEN),
+    'process.env.REACT_APP_API_KEY': JSON.stringify(process.env.REACT_APP_API_KEY),
+}
 
 module.exports = {
     entry: path.resolve(__dirname, 'src', 'index.tsx'),
     output: {
         filename: '[name].[contenthash].js',
-        chunkFilename: '[name].[contenthash].js', 
+        chunkFilename: '[name].[contenthash].js',
         path: path.resolve(__dirname, 'build'),
         clean: true,
     },
@@ -22,7 +21,7 @@ module.exports = {
         new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'public', 'index.html') }),
         new MiniCssExtractPlugin(),
         require('autoprefixer'),
-        new webpack.DefinePlugin(envKeys),
+        new webpack.DefinePlugin(definitions),
     ],
     module: {
         strictExportPresence: true,
