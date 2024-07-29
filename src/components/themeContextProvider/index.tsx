@@ -1,4 +1,4 @@
-import { ReactElement, useMemo, useState } from 'react'
+import { ReactElement, useCallback, useMemo, useState } from 'react'
 import THEMES from '@constants/themes'
 import ThemeContext from '@contexts/themeContext'
 
@@ -8,8 +8,8 @@ type Props = {
 
 function ThemeContextProvider({ children }: Props) {
     const [theme, setTheme] = useState<THEMES>(THEMES.DARK)
-    const setDark = () => setTheme(THEMES.DARK)
-    const setLight = () => setTheme(THEMES.LIGHT)
+    const setDark = useCallback(() => setTheme(THEMES.DARK), [])
+    const setLight = useCallback(() => setTheme(THEMES.LIGHT), [])
 
     const initValue = useMemo(() => {
         return { theme, setDark, setLight }
