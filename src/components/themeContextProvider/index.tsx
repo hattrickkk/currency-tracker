@@ -1,4 +1,5 @@
-import { ReactElement, useCallback, useMemo, useState } from 'react'
+import { ReactElement, useCallback, useEffect, useMemo, useState } from 'react'
+import { LOCAL_STORAGE_KEY } from '@constants/magicValues'
 import THEMES from '@constants/themes'
 import ThemeContext from '@contexts/themeContext'
 
@@ -7,9 +8,16 @@ type Props = {
 }
 
 function ThemeContextProvider({ children }: Props) {
-    const [theme, setTheme] = useState<THEMES>(THEMES.DARK)
+    const [theme, setTheme] = useState<THEMES>(() => {
+        const savedTheme = localStorage.getItem(LOCAL_STORAGE_KEY)
+        return savedTheme ? JSON.parse(savedTheme) : THEMES.DARK
+    })
     const setDark = useCallback(() => setTheme(THEMES.DARK), [])
     const setLight = useCallback(() => setTheme(THEMES.LIGHT), [])
+
+    useEffect(() => {
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(theme))
+    }, [theme])
 
     const initValue = useMemo(() => {
         return { theme, setDark, setLight }

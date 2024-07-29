@@ -25,3 +25,5 @@ export const WHITE: string = '#fff'
 export const BLACK: string = '#030304'
 
 export const CHART_VALUES_PADDING: number = 10
+
+export const LOCAL_STORAGE_KEY: string = 'theme'
