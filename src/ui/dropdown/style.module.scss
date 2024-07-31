@@ -124,3 +124,19 @@
 		}
 	}
 }
+
+.dropdown.light {
+	color: $BLACK;
+	.button {
+		border: 2px solid $GRAY;
+
+		&:hover {
+			background-color: rgba($CURRENCY_CARD_STROKE, 0.4);
+		}
+	}
+
+	.itemsWrapper {
+		background-color: $WHITE;
+		border: 2px solid $GRAY;
+	}
+}

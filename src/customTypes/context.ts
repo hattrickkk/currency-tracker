@@ -1,4 +1,5 @@
-import { CurrentCurrency } from '@customTypes/currency'
+import THEMES from '@constants/themes'
+import { CurrentCurrency, LatestValues } from '@customTypes/currency'
 
 export type PopupContextType = {
     currentCurrency: CurrentCurrency
@@ -8,10 +9,15 @@ export type PopupContextType = {
     closePopup: VoidFunction
 }
 
-export type NotificationModalContextType = {
-    isModalOpen: boolean
-    openModal: VoidFunction
-    closeModal: VoidFunction
-    days: number
-    openModalWithDays: (count: number) => void
+export type ThemeContextType = {
+    theme: THEMES
+    setDark: VoidFunction
+    setLight: VoidFunction
 }
+
+export type MapContextType = {
+    searchingCurrency: string
+    setSearchingCurrency: React.Dispatch<React.SetStateAction<string>>
+}
+
+export type CurrencyContextType = LatestValues

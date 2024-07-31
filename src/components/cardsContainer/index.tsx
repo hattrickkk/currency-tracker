@@ -2,24 +2,23 @@ import React, { useContext } from 'react'
 import CURRENCIES_SECTION_NAMES from '@constants/currenciesSectionNames'
 import CURRENCIES_SYMBOLS from '@constants/currenciesSymbols'
 import popupContext from '@contexts/popupContext'
-import { Index } from '@customTypes/currency'
-import currencies from '@mockData/currency'
+import { CurrentCurrency, Index } from '@customTypes/currency'
 import CurrencyCard from '@ui/currencyCard'
 
 import * as styles from './style.module.scss'
 
 type Props = {
-    elements: (string | Index)[]
+    elements: (CurrentCurrency | Index)[]
     type: CURRENCIES_SECTION_NAMES
 }
 
 function CardsContainer({ elements, type }: Props) {
     const { setCurrentCurrency, openPopup } = useContext(popupContext)
 
-    const currecyCardClickHandler = (el: string) => () => {
+    const currecyCardClickHandler = (code: string, name: string) => () => {
         setCurrentCurrency({
-            code: currencies.data[el].code,
-            name: currencies.data[el].name,
+            code,
+            name,
         })
         openPopup()
     }
@@ -30,13 +29,13 @@ function CardsContainer({ elements, type }: Props) {
                 ? elements.map(({ name, value, picture }: Index) => (
                       <CurrencyCard key={name} name={name} value={value} picture={picture} />
                   ))
-                : elements.map((el: string) => (
+                : elements.map(({ name, code }: CurrentCurrency) => (
                       <CurrencyCard
-                          key={currencies.data[el].code}
-                          name={currencies.data[el].name}
-                          code={currencies.data[el].code}
-                          picture={CURRENCIES_SYMBOLS[el]}
-                          onClick={currecyCardClickHandler(el)}
+                          key={code}
+                          name={name}
+                          code={code}
+                          picture={CURRENCIES_SYMBOLS[code]}
+                          onClick={currecyCardClickHandler(code, name)}
                       />
                   ))}
         </div>

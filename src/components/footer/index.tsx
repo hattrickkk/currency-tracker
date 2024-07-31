@@ -1,9 +1,13 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useContext } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import FOOTER_MENU_ITEMS from '@constants/footerMenuItems'
 import * as paths from '@constants/paths'
+import THEMES from '@constants/themes'
+import ThemeContext from '@contexts/themeContext'
+import { ThemeContextType } from '@customTypes/context'
 import LinkItem from '@ui/linkItem'
 import Logo from '@ui/logo'
+import clsx from 'clsx'
 
 import * as global from '@styles/global.module.scss'
 import * as styles from './style.module.scss'
@@ -11,7 +15,7 @@ import * as styles from './style.module.scss'
 function Footer() {
     const navigate = useNavigate()
     const location = useLocation()
-
+    const { theme } = useContext<ThemeContextType>(ThemeContext)
     const appNameClickHandler = () => {
         if (location.pathname !== paths.HOME) navigate(paths.HOME)
     }
@@ -24,7 +28,7 @@ function Footer() {
     }, [])
 
     return (
-        <footer className={styles.footer}>
+        <footer className={clsx(styles.footer, theme === THEMES.LIGHT && styles.light)}>
             <div className={global.container}>
                 <div className={styles.main}>
                     <div className={styles.main__descr}>

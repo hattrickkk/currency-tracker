@@ -1,13 +1,16 @@
 import { PureComponent } from 'react'
 import { Chart as ReactChart } from 'react-chartjs-2'
-import CHART_OPTIONS from '@constants/chartOptions'
+import { CHART_OPTIONS_DARK, CHART_OPTIONS_LIGHT } from '@constants/chartOptions'
 import { CHART_TYPE } from '@constants/magicValues'
-import NotificationModalContext from '@contexts/notificationModal'
+import THEMES from '@constants/themes'
+import ThemeContext from '@contexts/themeContext'
 import { CandleStickChartData, ChartData, DataForChart } from '@customTypes/chart'
 import EXCHANGE_ARR from '@mockData/exchanges'
+import notify from '@utils/notify'
 import Observable, { Observer } from '@utils/observable'
 import { Chart, registerables } from 'chart.js'
 import * as Financial from 'chartjs-chart-financial'
+import clsx from 'clsx'
 
 import * as styles from './style.module.scss'
 
@@ -21,9 +24,9 @@ type Props = {
 type State = ChartData
 
 class CandlestickChart extends PureComponent<Props, State> implements Observer {
-    static contextType = NotificationModalContext
+    static contextType = ThemeContext
 
-    context: React.ContextType<typeof NotificationModalContext>
+    context: React.ContextType<typeof ThemeContext>
 
     constructor(props: Props) {
         super(props)
@@ -63,14 +66,18 @@ class CandlestickChart extends PureComponent<Props, State> implements Observer {
             ],
         })
 
-        if (count) this.context.openModalWithDays(count)
+        if (count) notify(count, this.context.theme === THEMES.DARK)
     }
 
     render() {
         return (
-            <div className={styles.chart}>
+            <div className={clsx(styles.chart)}>
                 <div className={styles.wrapper}>
-                    <ReactChart type={CHART_TYPE} data={this.state} options={CHART_OPTIONS} />
+                    <ReactChart
+                        type={CHART_TYPE}
+                        data={this.state}
+                        options={this.context.theme === THEMES.DARK ? CHART_OPTIONS_DARK : CHART_OPTIONS_LIGHT}
+                    />
                 </div>
             </div>
         )

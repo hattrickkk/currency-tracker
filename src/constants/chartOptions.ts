@@ -1,6 +1,6 @@
-import { CHART_VALUES_COLOR, CHART_VALUES_PADDING, GRID_BORDER, GRID_COLOR } from './magicValues'
+import { BLACK, CHART_VALUES_PADDING, GRAY, GRID_BORDER, GRID_COLOR, WHITE } from './magicValues'
 
-const CHART_OPTIONS = {
+export const CHART_OPTIONS_DARK = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
@@ -30,7 +30,7 @@ const CHART_OPTIONS = {
             beginAtZero: false,
             ticks: {
                 padding: CHART_VALUES_PADDING,
-                color: CHART_VALUES_COLOR,
+                color: WHITE,
             },
             grid: {
                 color: GRID_COLOR,
@@ -41,4 +41,26 @@ const CHART_OPTIONS = {
     },
 }
 
-export default CHART_OPTIONS
+export const CHART_OPTIONS_LIGHT = {
+    ...CHART_OPTIONS_DARK,
+    scales: {
+        x: {
+            ...CHART_OPTIONS_DARK.scales.x,
+            grid: {
+                color: GRAY,
+                borderColor: GRAY,
+            },
+        },
+        y: {
+            ...CHART_OPTIONS_DARK.scales.y,
+            ticks: {
+                padding: CHART_VALUES_PADDING,
+                color: BLACK,
+            },
+            grid: {
+                color: GRAY,
+                borderColor: GRAY,
+            },
+        },
+    },
+}

@@ -1,4 +1,8 @@
-import { forwardRef, useImperativeHandle, useRef } from 'react'
+import { forwardRef, useContext, useImperativeHandle, useRef } from 'react'
+import THEMES from '@constants/themes'
+import ThemeContext from '@contexts/themeContext'
+import { ThemeContextType } from '@customTypes/context'
+import clsx from 'clsx'
 
 import * as global from '@styles/global.module.scss'
 import * as styles from './style.module.scss'
@@ -9,6 +13,7 @@ type Props = {
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
     maxLength: number
     placeholder?: string
+    onClick: VoidFunction
 }
 
 type InputHandle = {
@@ -17,7 +22,8 @@ type InputHandle = {
     resetValue: VoidFunction
 }
 
-const Input = forwardRef<InputHandle, Props>(({ value, id, onChange, maxLength, placeholder }: Props, ref) => {
+const Input = forwardRef<InputHandle, Props>(({ value, id, onChange, maxLength, placeholder, onClick }: Props, ref) => {
+    const { theme } = useContext<ThemeContextType>(ThemeContext)
     const inputRef = useRef<HTMLInputElement>(null)
 
     useImperativeHandle(ref, () => ({
@@ -28,12 +34,13 @@ const Input = forwardRef<InputHandle, Props>(({ value, id, onChange, maxLength, 
 
     return (
         <input
-            className={styles.input}
+            className={clsx(styles.input, theme === THEMES.LIGHT && styles.light)}
             type='text'
             id={id}
             placeholder={placeholder || 'Enter amount...'}
             value={value}
             onChange={onChange}
+            onClick={onClick}
             maxLength={maxLength}
             ref={inputRef}
         />

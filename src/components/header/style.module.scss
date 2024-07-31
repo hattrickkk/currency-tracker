@@ -1,14 +1,14 @@
 @import '@styles/colors.scss';
 @import '@styles/sizes.scss';
 
-.header{
+.header {
 	background-color: $BLACK;
 	padding: 35px 0;
 	position: fixed;
 	z-index: 100;
 	width: 100%;
 
-	&__inner{
+	&__inner {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -24,7 +24,7 @@
 	.separator {
 		flex: 1 1 auto;
 	}
-	
+
 	&__nav {
 		display: flex;
 		justify-content: space-between;
@@ -40,7 +40,7 @@
 	&__item {
 		padding: 0px 38px;
 
-		a{
+		a {
 			cursor: pointer;
 			color: $WHITE;
 			font-size: 20px;
@@ -56,20 +56,20 @@
 		}
 	}
 
-	&__burger{
+	&__burger {
 		cursor: pointer;
 		display: none;
 		width: 50px;
 		height: 50px;
 		position: relative;
 		transition: all linear 0.2s;
-	
-		&:hover > span,
-		&:hover > span::before,
-		&:hover > span::after {
+
+		&:hover>span,
+		&:hover>span::before,
+		&:hover>span::after {
 			background-color: $LIGHT_GREEN;
 		}
-	
+
 		span,
 		span::before,
 		span::after {
@@ -79,36 +79,36 @@
 			background-color: $WHITE;
 			transition: all linear 0.2s;
 		}
-	
+
 		span::before,
 		span::after {
 			content: '';
 			position: absolute;
 		}
 
-		span {		
+		span {
 			display: block;
 			transform: translateY(25px);
 
-			&::before{
+			&::before {
 				display: block;
 				transform: translateY(-15px);
 			}
 
-			&::after{
+			&::after {
 				display: block;
 				transform: translateY(15px);
 			}
 		}
 
-		&.active{
-			span{
+		&.active {
+			span {
 				background: rgba($BLACK, 0.0);
 
 				&::before {
 					transform: translateY(0px) rotate(-45deg);
 				}
-				
+
 				&::after {
 					transform: translateY(0px) rotate(45deg);
 				}
@@ -123,6 +123,7 @@
 
 		&__item {
 			padding: 0px 23px;
+
 			a {
 				font-size: 18px;
 			}
@@ -134,7 +135,7 @@
 	.header {
 		padding: 20px 0;
 
-		.separator{
+		.separator {
 			display: none;
 		}
 
@@ -149,7 +150,7 @@
 			justify-content: flex-start;
 			padding-top: 160px;
 
-			&.active{
+			&.active {
 				left: 0;
 				overflow: auto;
 			}
@@ -164,14 +165,59 @@
 
 		&__item {
 			padding: 30px 0px;
-	
+
 			a {
 				font-size: 30px;
 			}
 		}
-		
+
 		&__burger {
 			display: block;
+		}
+	}
+}
+
+
+.header.light {
+	background-color: $WHITE;
+
+	.header__item a {
+		color: $BLACK;
+
+		&:hover {
+			color: $LIGHT_GREEN;
+		}
+
+		&:active {
+			color: $DARK_GREEN;
+		}
+	}
+
+	.header__burger {
+		&:hover>span,
+		&:hover>span::before,
+		&:hover>span::after {
+			background-color: $LIGHT_GREEN;
+		}
+
+		span,
+		span::before,
+		span::after {
+			background-color: $BLACK;
+		}
+
+		&.active {
+			span {
+				background: rgba($WHITE, 0.0);
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $SMALL_TABLET) {
+	.header.light {
+		.header__nav {
+			background-color: $WHITE;
 		}
 	}
 }

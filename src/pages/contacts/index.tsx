@@ -1,5 +1,7 @@
+import ContactsSeation from '@components/contanctSection'
+
 function ContactsPage() {
-    return <div>Contacts</div>
+    return <ContactsSeation />
 }
 
 export default ContactsPage

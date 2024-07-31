@@ -1,13 +1,13 @@
 @import '@styles/colors.scss';
 @import '@styles/sizes.scss';
 
-.footer{
+.footer {
 	padding: 40px 0;
 
-	&__copyright{
+	&__copyright {
 		font-weight: 400;
 		font-size: 24px;
-		color : $GRAY;
+		color: $GRAY;
 		text-align: center;
 	}
 
@@ -15,18 +15,18 @@
 		display: flex;
 		margin-bottom: 50px;
 
-		&__descr{
+		&__descr {
 			flex: 0 1 470px;
 			margin-right: 120px;
 		}
 
-		&__title{
+		&__title {
 			display: flex;
 			align-items: center;
 			margin-bottom: 30px;
 			cursor: pointer;
 
-			h4{
+			h4 {
 				padding-left: 30px;
 				font-weight: 600;
 				font-size: 26px;
@@ -36,23 +36,23 @@
 			}
 		}
 
-		&__text{
+		&__text {
 			font-size: 24px;
 			line-height: 36px;
 		}
 
-		&__nav{
+		&__nav {
 			flex: 1 1 auto;
 			display: flex;
 			justify-content: space-between;
 			gap: 70px;
 		}
 
-		&__menu{
+		&__menu {
 			font-family: "Inter";
 			font-weight: 400;
 
-			h4{
+			h4 {
 				font-size: 28px;
 				margin-bottom: 40px;
 			}
@@ -61,23 +61,23 @@
 		&__menuItem {
 			margin-bottom: 28px;
 			cursor: pointer;
-			
-			a{
+
+			a {
 				font-size: 24px;
 				color: $GRAY;
 				transition: all 0.3s ease;
 
-				&:hover{
+				&:hover {
 					color: $LIGHT_GREEN;
 				}
 			}
-			
+
 		}
 	}
 }
 
 @media screen and (max-width: $SMALL_DESKTOP) {
-	.footer{
+	.footer {
 		.main {
 			flex-direction: column;
 			align-items: center;
@@ -97,9 +97,10 @@
 				display: flex;
 				justify-content: center;
 
-				svg{
+				svg {
 					transform: scale(0.8);
 				}
+
 				h4 {
 					padding-left: 20px;
 					font-size: 30px;
@@ -133,7 +134,7 @@
 				svg {
 					transform: scale(0.7);
 				}
-		
+
 				h4 {
 					font-size: 26px;
 				}
@@ -152,16 +153,17 @@
 
 			&__menuItem {
 				margin-bottom: 25px;
+
 				a {
 					font-size: 20px;
 				}
 			}
 		}
-	} 
+	}
 }
 
 @media screen and (max-width: $MEDIUM_TABLET) {
-	.footer .main{
+	.footer .main {
 		&__nav {
 			gap: 120px;
 		}
@@ -174,7 +176,7 @@
 			max-width: none;
 			align-items: stretch;
 
-			&__descr{
+			&__descr {
 				margin-bottom: 35px;
 			}
 
@@ -241,7 +243,7 @@
 				}
 			}
 
-			&__menu	h4.active ~ .main__itemsWrapper{
+			&__menu h4.active~.main__itemsWrapper{
 				max-height: 120px;
 				padding-top: 20px;
 			}
@@ -263,7 +265,7 @@
 		}
 
 		.main {
-			
+
 			&__descr {
 				margin-bottom: 25px;
 			}
@@ -272,7 +274,7 @@
 				svg {
 					transform: scale(0.5);
 				}
-		
+
 				h4 {
 					font-size: 22px;
 					padding-left: 7px;
@@ -312,4 +314,22 @@
 			}
 		}
 	}
+}
+
+.footer.light {
+	.main__menu {
+		h4 {
+
+			&::after,
+			&::before {
+				background-color: $BLACK;
+			}
+
+			&:hover::after,
+			&:hover::before {
+				background-color: $GRAY;
+			}
+		}
+	}
+
 }
