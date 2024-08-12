@@ -75,6 +75,7 @@ class FormChart extends PureComponent<Props, State> {
             this.notifyAllAfterSetState()
         )
         resetInputs(ref)
+        ref.setState(INIT_CANDLESTICK_CHART_VALUES)
 
         if (this.state.inputs.length >= MAX_DAYS) this.setState({ disabled: true })
     }
