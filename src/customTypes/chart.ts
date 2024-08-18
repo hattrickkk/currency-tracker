@@ -19,3 +19,5 @@ export type Price = {
     title: string
     id: string
 }
+
+export type ChartKeys = 'o' | 'c' | 'l' | 'h'
