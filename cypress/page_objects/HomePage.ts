@@ -7,27 +7,27 @@ export class HomePage {
         return cy.contains(name)
     }
 
-    getPopup() {
+    get popup() {
         return cy.getByDataCy('popup')
     }
 
-    getDropdown() {
+    get dropdown() {
         return cy.getByDataCy('dropdown')
     }
 
-    getThemeSwitcherLabel() {
+    get themeSwitcherLabel() {
         return cy.get('label[for=themeSwitcher]')
     }
 
-    getThemeSwitcherBody() {
-        return this.getThemeSwitcherLabel().find(':nth-child(2)')
+    get themeSwitcherBody() {
+        return this.themeSwitcherLabel.find(':nth-child(2)')
     }
 
-    getPopupInputs() {
-        return this.getPopup().find('input')
+    get popupInputs() {
+        return this.popup.find('input')
     }
-    
+
     clickThemeSwitcher() {
-        this.getThemeSwitcherLabel().click()
+        this.themeSwitcherLabel.click()
     }
 }
