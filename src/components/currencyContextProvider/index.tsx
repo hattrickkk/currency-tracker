@@ -14,7 +14,7 @@ function CurrencyContextProvider({ children }: Props) {
     useEffect(() => {
         getLatest()
             .then(res => setLatestValues(res))
-            .catch(() => setLatestValues(LATEST_VALUES))
+            .catch(error => console.error(`Something went wrong: ${error}`))
     }, [])
 
     return <CurrencyContext.Provider value={latestValues}>{children}</CurrencyContext.Provider>
