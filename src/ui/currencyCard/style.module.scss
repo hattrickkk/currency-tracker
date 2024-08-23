@@ -1,0 +1,155 @@
+@import '@styles/colors.scss';
+@import '@styles/sizes.scss';
+
+.card{
+	flex: 0 1 calc(50% - $CARD_COLUMN_GAP_BIG);
+
+	&__inner{
+		cursor: pointer;
+		display: flex;
+		background-color: $CURRENCY_CARD_BACK;
+		padding: 32px 25px;
+		border: 1px solid $CURRENCY_CARD_STROKE;
+		border-radius: 10px;
+		transition: all 0.3s ease;
+  
+		&:hover{
+			transform: scale(1.02);
+			box-shadow: 0 0 20px rgba($LIGHT_GRAY, 0.4);
+		}
+	}
+
+	&__img{
+		width: 80px;
+		height: 80px;
+
+		img{
+			height: 100%;
+			width: 100%;
+		}
+	}
+
+	&__info{
+		padding-left: 30px;
+	}
+
+	&__title{
+		font-size: 32px;
+		color: $LIGHT_GRAY;
+		margin-bottom: 15px;
+	}
+
+	&__text{
+		font-size: 26px;
+		color: $CURRENCY_CARD_GRAY;
+		padding-bottom: 2px;
+	}
+}
+
+@media screen and (max-width: $SMALL_DESKTOP) {
+	.card {
+		&__info {
+			display: flex;
+			flex-direction: column;
+			padding-left: 15px;
+		}
+
+		&__img {
+			height: 70px;
+			width: 70px;
+		}
+
+		&__title {
+			font-size: 26px;
+			flex: 1 1 auto;
+			margin: 0;
+		}
+
+		&__text {
+			font-size: 24px;
+			color: $CURRENCY_CARD_GRAY;
+		}
+	}
+}
+
+@media screen and (max-width: $LARGE_TABLET) {				
+	.card {
+		flex: 0 1 calc(50% - $CARD_COLUMN_GAP_SMALL);
+		&__inner {
+			padding: 22px 20px;
+		}
+
+		&__img {
+			max-height: 60px;
+			max-width: 60px;
+		}
+
+		&__title {
+			font-size: 24px;
+			font-weight: 300;
+		}
+
+		&__text {
+			font-size: 20px;
+		}
+	}
+}
+
+@media screen and (max-width: $NORMAL_TABLET) {
+	.card {
+
+		&__inner {
+			padding: 18px;
+		}
+
+		&__img {
+			max-height: 50px;
+			max-width: 50px;
+		}
+
+		&__title {
+			font-size: 20px;
+		}
+
+		&__text {
+			font-size: 16px;
+		}
+	}
+}
+
+@media screen and (max-width: $MEDIUM_TABLET) {
+	.card {
+		flex: 1 1 100%;
+		padding: 0;
+	}
+}
+
+@media screen and (max-width: $NORMAL_PHONE) {
+	.card {
+		&__title {
+			max-width: 170px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+}
+
+.card.light {
+	.card__inner {
+		background-color: $LIGHT_GRAY;
+		border: 1px solid $CURRENCY_CARD_GRAY;
+
+		&:hover {
+			box-shadow: 0 0 20px rgba($GRAY, 0.4);
+		}
+	}
+
+	.card__title {
+		color: $BLACK;
+	}
+
+	.card__text {
+		color: $GRAY;
+	}
+}

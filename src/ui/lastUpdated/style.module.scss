@@ -1,0 +1,78 @@
+@import '@styles/colors.scss';
+@import '@styles/sizes.scss';
+
+.lastUpdated {
+	padding: 55px 0;
+	text-align: center;
+	color: $LIGHT_GRAY;
+
+	&__text{
+		font-size: 32px;
+		position: relative;
+		padding-left: 60px;
+
+		&::before,
+		&::after{
+			content: '';
+			background-color: $LAST_UPDATED_GREEN;
+			width: 33px;
+			height: 33px;
+			position: absolute;
+			border-radius: 100%;
+			left: 0;
+			opacity: 0.4;
+		}
+
+		&::after {
+			width: 16px;
+			height: 16px;
+			left: 8.5px;
+			top: 15px;
+			opacity: 1;
+		}
+	}
+}
+
+@media screen and (max-width: $NORMAL_TABLET) {
+	.lastUpdated {
+			padding: 40px 0;
+	
+			&__text {
+				font-size: 24px;
+
+				&::before {
+					top: 2px;
+				}
+				
+				&::after {
+					top: 10px;
+				}
+			}
+	}
+}
+
+@media screen and (max-width: $SMALL_TABLET) {
+	.lastUpdated {
+		&__text {
+			font-size: 20px;
+			padding-left: 45px;
+
+			&::before {
+				top: 0px;
+				width: 28px;
+				height: 28px;
+			}
+
+			&::after {
+				left: 7.5px;
+				top: 7px;
+				width: 14px;
+				height: 14px;
+			}
+		}
+	}
+}
+
+.lastUpdated.light {
+	color: $GRAY;
+}

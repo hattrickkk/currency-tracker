@@ -1,0 +1,142 @@
+@import '@styles/colors.scss';
+@import '@styles/sizes.scss';
+
+.dropdown{
+	width: 150px;
+	font-size: 24px;
+	position: relative;
+	color: $LIGHT_GRAY;
+
+	.button,
+	.itemsWrapper,
+	.item {
+		border-radius: 10px;
+		transition: all 0.3s ease;
+	}
+
+	.button{
+		position: relative;
+		cursor: pointer;
+		padding: 13px;
+		border: 2px solid $CURRENCY_CARD_STROKE;
+
+		&:hover{
+			background-color: rgba($CURRENCY_CARD_STROKE, 0.4);
+		}
+
+		&::before{
+			content: '';
+			position: absolute;
+			right: 15px;
+			top: 22px;
+			border: 8px solid transparent;
+			border-top: 10px solid $LIGHT_GREEN;
+			transition: all 0.3s ease;
+		}
+
+
+		&.active {
+			background-color: rgba($CURRENCY_CARD_STROKE, 0.4);
+
+			&::before{
+				transform: scaleY(-1);
+				top: 13px;
+			}
+		}
+	}
+
+	.itemsWrapper{
+		background-color: $BLACK;
+		border: 2px solid $CURRENCY_CARD_STROKE;
+		margin-top: 8px;
+		position: absolute;
+		width: 100%;
+		overflow-y: scroll;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+		visibility: hidden;
+		max-height: 0;
+		transition: all 0.3s ease;
+
+		&.active {
+			visibility: visible;
+			max-height: 218px;
+		}
+
+		.items {	
+			padding: 8px;
+			background-color: rgba($CURRENCY_CARD_STROKE, 0.4);
+			
+			.item {
+				padding: 10px;
+				cursor: pointer;
+
+				&:hover{
+					background-color: rgba($CURRENCY_CARD_STROKE, 0.4);
+				}
+	
+				&:not(:last-child) {
+					margin-bottom: 8px;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $SMALL_TABLET) {
+	.dropdown {
+		width: 125px;
+		font-size: 18px;
+
+		.button {
+			padding: 11px 11px 11px 14px;
+	
+			&::before {
+				right: 13px;
+				top: 16px;
+				border: 7px solid transparent;
+				border-top: 8px solid $LIGHT_GREEN;
+			}
+	
+			&.active {
+				&::before {
+					transform: scaleY(-1);
+					top: 10px;
+				}
+			}
+		}
+
+		.itemsWrapper {
+			&.active {
+				max-height: 202px;
+			}
+	
+			.items {
+				.item {
+					padding: 7px;
+					border-radius: 8px;
+
+					&:not(:last-child) {
+						margin-bottom: 6px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.dropdown.light {
+	color: $BLACK;
+	.button {
+		border: 2px solid $GRAY;
+
+		&:hover {
+			background-color: rgba($CURRENCY_CARD_STROKE, 0.4);
+		}
+	}
+
+	.itemsWrapper {
+		background-color: $WHITE;
+		border: 2px solid $GRAY;
+	}
+}

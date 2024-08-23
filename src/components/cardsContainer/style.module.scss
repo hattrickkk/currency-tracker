@@ -1,0 +1,22 @@
+@import '@styles/sizes.scss';
+
+.cardsContainer{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	column-gap: $CARD_COLUMN_GAP_BIG;
+	row-gap: 45px;
+}
+
+@media screen and (max-width: $LARGE_TABLET) {
+	.cardsContainer {
+		column-gap: $CARD_COLUMN_GAP_SMALL;
+		row-gap: 35px;
+	}
+}
+
+@media screen and (max-width: $NORMAL_TABLET) {
+	.cardsContainer {
+		row-gap: 25px;
+	}
+}

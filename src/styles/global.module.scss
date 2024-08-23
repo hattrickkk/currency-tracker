@@ -1,0 +1,37 @@
+@import '@styles/colors.scss';
+@import '@styles/sizes.scss';
+
+body{
+	font-weight: 300;
+	font-size: 20px;
+	line-height: 41px;
+	font-family: "Poppins";
+	background-color: $BLACK;
+	color: $WHITE;
+
+	&.lock{
+		overflow: hidden;
+	}
+
+	&.light {
+		background-color: $WHITE;
+		color: $BLACK;
+	}
+}
+
+.wrapper {
+	overflow: hidden;
+	min-height: 100%;
+}
+
+.container {
+	max-width: $CONTAINER_WIDTH;
+	margin: 0 auto;
+	padding: 0 35px;
+	box-sizing: border-box;
+}
+
+.require {
+	box-shadow: 0 0 20px rgba($TIMELINE_RED, 1);
+}
+

@@ -1,0 +1,163 @@
+@import '@styles/colors.scss';
+@import '@styles/sizes.scss';
+
+.popup{
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	pointer-events: none;
+	left: 0;
+	z-index: 100;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all ease 0.3s;
+
+	&.active{
+		pointer-events: all;
+		background-color: rgba($LIGHT_GRAY, 0.3);
+	}
+
+	.wrapper{
+		background-color: $BLACK;
+		padding: 70px 30px 30px;
+		border-radius: 10px;
+		max-width: 600px;
+		position: absolute;
+		top: -100%;
+		transition: all ease 0.4s;
+
+		&.active{
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+
+	.btn{
+		display: flex;
+		justify-content: flex-end;
+
+		span{
+			cursor: pointer;
+			position: absolute;
+			transition: all 0.3s ease;
+			width: 60px;
+			height: 60px;
+			display: block;
+			border-radius: 100%;
+			margin-right: 5px;
+			top: 15px;
+			right: 10px;
+
+			&::before, 
+			&::after{
+				content: '';
+				background-color: $LIGHT_GRAY;
+				width: 35px;
+				height: 2px;
+				position: absolute;
+				left: 12px;
+				top: 50%;
+				border-radius: 3px;
+				transition: all 0.3s ease;
+			}
+
+			&:hover{
+				background-color: rgba($WHITE, 0.1);
+			}
+
+			&:hover::after,
+			&:hover::before{
+				background-color: $LIGHT_GREEN;
+			}
+
+			&::after {
+				transform: rotate(45deg);
+			}
+
+			&::before {
+				transform: rotate(-45deg);
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $SMALL_TABLET) {
+.popup{
+	.wrapper {
+		padding: 50px 15px 15px;
+		margin: 15px;
+	}
+
+	.btn {
+		span {
+			width: 50px;
+			height: 50px;
+			top: 20px;
+
+			&::before,
+			&::after {
+				content: '';
+				width: 30px;
+				left: 10px;
+			}
+		}
+	}
+}
+}
+
+@media screen and (max-width: $LARGE_PHONE) {
+	.popup {
+		.wrapper {
+			padding: 30px 10px 10px;
+			margin: 15px;
+
+			.btn {
+				span {
+					width: 40px;
+					height: 40px;
+					right: 8px;
+					top: 15px;
+
+					&::before,
+					&::after {
+						content: '';
+						width: 25px;
+						left: 8px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.popup.light {
+	&.active {
+		background-color: rgba($BLACK, 0.5);
+	}
+
+	.wrapper {
+		background-color: $WHITE;
+	}
+
+	.btn {
+		span {
+			&::before,
+			&::after {
+				content: '';
+				background-color: $BLACK;
+			}
+
+			&:hover {
+				background-color: rgba($BLACK, 0.07);
+			}
+
+			&:hover::after,
+			&:hover::before {
+				background-color: $LIGHT_GREEN;
+			}
+		}
+	}
+}

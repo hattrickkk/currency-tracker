@@ -1,0 +1,90 @@
+@import '@styles/colors.scss';
+@import '@styles/sizes.scss';
+
+.wrapper {
+	text-align: center;
+	padding: 105px 0 85px;
+
+	.text {
+		font-weight: 400;
+		font-size: 38px;
+		margin-bottom: 35px;
+	}
+
+	.select {
+		margin: 0 auto;
+		max-width: 450px;
+		position: relative;
+
+		.search {
+			position: relative;
+
+			.icon {
+				position: absolute;
+				right: 20px;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+
+			input {
+				padding-right: 50px;
+			}
+		}
+
+		.complete {
+			background-color: $CURRENCY_CARD_BACK;
+			border: 2px solid $CURRENCY_CARD_STROKE;
+			border-radius: 10px;
+			max-height: 350px;
+			width: 100%;
+			margin-top: 20px;
+			overflow-y: scroll;
+			position: absolute;
+			overflow-y: scroll;
+			scrollbar-width: none;
+			-ms-overflow-style: none;
+			z-index: 1;
+			padding: 15px;
+
+			&.hidden {
+				opacity: 0;
+			}
+
+			.item {
+				padding: 15px;
+				font-size: 24px;
+				text-align-last: left;
+				transition: all 0.3s ease;
+				border-radius: 7px;
+				cursor: pointer;
+
+
+				&:hover {
+					background-color: rgba($CURRENCY_CARD_STROKE, 0.4);
+				}
+			}
+		}
+
+		.complete.light {
+			background-color: $LIGHT_GRAY;
+			border: 2px solid $GRAY;
+
+			.item {
+				&:hover {
+					background-color: rgba($WHITE, 0.4);
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $MEDIUM_TABLET) {
+	.wrapper {
+		text-align: center;
+		padding: 75px 0 65px;
+
+		.text {
+			font-size: 28px;
+		}
+	}
+}

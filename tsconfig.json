@@ -1,17 +1,28 @@
 {
     "compilerOptions": {
+        "types": ["jest", "node"],
         "outDir": "./dist/",
         "sourceMap": true,
         "noImplicitAny": true,
-        "module": "es6",
+        "module": "ES2020",
         "target": "es5",
         "jsx": "react-jsx",
         "allowJs": true,
         "moduleResolution": "node",
         "esModuleInterop": true,
-        "baseUrl": ".",
+        "baseUrl": "src",
         "paths": {
-            "@/*": ["./src/*"]
+            "@/*": ["./src/*"],
+            "@components/*": ["components/*"],
+            "@styles/*": ["styles/*"],
+            "@constants/*": ["constants/*"],
+            "@ui/*": ["ui/*"],
+            "@utils/*": ["utils/*"],
+            "@assets/*": ["assets/*"],
+            "@pages/*": ["pages/*"],
+            "@contexts/*": ["contexts/*"],
+            "@customTypes/*": ["customTypes/*"],
+            "@mockData/*": ["mockData/*"],
         },
         "plugins": [
             {

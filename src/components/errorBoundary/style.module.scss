@@ -1,0 +1,33 @@
+@import '@styles/colors.scss';
+
+.errorBoundary{
+	margin: auto;
+	
+	.wrapper {
+		text-align: center;
+
+		.text {
+			font-size: 20px;
+			margin-bottom: 80px;
+		}
+
+		.title {
+			font-size: 55px;
+			font-weight: 700;
+			margin-bottom: 60px;
+		}
+
+		.link{
+			background-color: $LIGHT_GREEN;
+			color: $BLACK;
+			font-size: 24px;
+			padding: 20px 30px;
+			border-radius: 10px;
+			transition: all 0.3s ease;
+
+			&:hover{
+				background-color: $DARK_GREEN;
+			}
+		}
+	}
+}

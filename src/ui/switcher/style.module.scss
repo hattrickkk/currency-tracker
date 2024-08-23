@@ -1,0 +1,63 @@
+@import '@styles/colors.scss';
+@import '@styles/sizes.scss';
+
+.switcher{
+	label{
+		position: relative;
+		display: block;
+		max-width: 50px;
+		border-radius: 20px;
+	}
+
+	input{
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		visibility: hidden;
+	}
+
+	input:checked ~ &__button{
+		background-color: $BLACK;
+		border: 2px solid $BLACK;
+		transform: translateX(25px);
+	}
+
+	input:checked~&__body {
+		border: 2px solid $BLACK;
+	}
+
+	input:hover~&__body,
+	input:hover~&__button {
+		border: 2px solid $LIGHT_GREEN;
+	}
+
+	input:hover~&__button {
+		background-color: $LIGHT_GREEN;
+	}
+
+	&__body, &__button {
+		display: block;
+		height: 25px;
+		border: 2px solid $WHITE;
+		border-radius: 20px;
+		transition: all 0.3s ease;
+		cursor: pointer;
+	}
+
+	&__body{
+		width: 	50px;
+	}
+
+	&__button{
+		width: 25px;
+		position: absolute;
+		top:0;
+		left: 0;
+	}
+}
+
+@media screen and (max-width: $SMALL_TABLET) {
+	.switcher {
+		transform: scale(1.5);
+	}
+}

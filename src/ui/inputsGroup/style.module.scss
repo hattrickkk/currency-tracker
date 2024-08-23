@@ -1,0 +1,244 @@
+@import '@styles/colors.scss';
+@import '@styles/sizes.scss';
+
+.inputsGroup {
+	padding-top: 40px;
+
+	.date {
+		width: 200px;
+		padding: 10px;
+		font-size: 16px;
+		border: 1px solid $CURRENCY_CARD_STROKE;
+		border-radius: 4px;
+		color: $WHITE;
+		background-color: $CURRENCY_CARD_BACK;
+		position: relative;
+		transition: all 0.3s ease;
+
+		&:focus {
+			box-shadow: 0 0 20px rgba($LIGHT_GRAY, 0.4);
+		}
+
+		&.disabled {
+			pointer-events: none;
+			color: $CURRENCY_CARD_STROKE;
+
+			&::-webkit-inner-spin-button,
+			&::-webkit-calendar-picker-indicator {
+				pointer-events: none;
+				filter: invert(30%);
+			}
+		}
+
+		&::-webkit-inner-spin-button,
+		&::-webkit-calendar-picker-indicator {
+			color: $WHITE;
+			padding: 110px 20px 110px 170px;
+			left: 0;
+			cursor: pointer;
+			position: absolute;
+			filter: invert(100%);
+		}
+	}
+
+	.wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border-bottom: 1px solid $CURRENCY_CARD_STROKE;
+
+		.row {
+			display: flex;
+			gap: 20px;
+			margin-right: 80px;
+		}
+
+		.button {
+			position: relative;
+			flex: 1 1 auto;
+			display: flex;
+			justify-content: flex-end;
+
+			span {
+				cursor: pointer;
+				position: absolute;
+				transition: all 0.3s ease;
+				width: 60px;
+				height: 60px;
+				display: block;
+				border-radius: 100%;
+				margin-left: 15px;
+				top: -30px;
+
+				&::before,
+				&::after {
+					content: '';
+					background-color: $LIGHT_GRAY;
+					width: 35px;
+					height: 2px;
+					position: absolute;
+					left: 12px;
+					top: 50%;
+					border-radius: 3px;
+					transition: all 0.3s ease;
+				}
+
+				&:hover {
+					background-color: rgba($WHITE, 0.1);
+				}
+
+				&:hover::after,
+				&:hover::before {
+					background-color: $LIGHT_GREEN;
+				}
+
+				&::after {
+					transform: rotate(45deg);
+				}
+
+				&::before {
+					transform: rotate(-45deg);
+				}
+			}
+		}
+
+		.group {
+			flex: 1 1 20%;
+			padding: 40px 0;
+
+			&.disabled {
+				input {
+					pointer-events: none;
+					color: $CURRENCY_CARD_STROKE;
+				}
+			}
+
+			p {
+				margin-bottom: 18px;
+				font-size: 24px;
+				min-width: 200px;
+				padding-left: 2px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $SMALL_DESKTOP) {
+	.inputsGroup {
+		.wrapper {
+			.row {
+				flex-wrap: wrap;
+				gap: 40px;
+			}
+
+			.group {
+				flex: 1 1 40%;
+
+				&:nth-child(1),
+				&:nth-child(2) {
+					padding-bottom: 0;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $EXTRA_SMALL_TABLET) {
+	.inputsGroup {
+		.wrapper {
+			flex-direction: column;
+			padding: 30px 0 50px;
+
+			.row {
+				flex-wrap: wrap;
+				margin: 0;
+				order: 1;
+			}
+
+			.group {
+				flex: 1 1 100%;
+				padding: 20px 0 0;
+
+				p {
+					margin-bottom: 15px;
+					font-size: 22px;
+				}
+			}
+
+			.button {
+				align-self: flex-end;
+
+				span {
+					margin: 0;
+					top: -85px;
+					right: 0;
+				}
+			}
+		}
+	}
+}
+
+.inputsGroup.light {
+	.date {
+		border: 1px solid $GRAY;
+		color: $BLACK;
+		background-color: $LIGHT_GRAY;
+
+		&::-webkit-inner-spin-button,
+		&::-webkit-calendar-picker-indicator {
+			filter: none;
+		}
+
+		&:focus {
+			box-shadow: 0 0 20px rgba($GRAY, 0.4);
+		}
+
+		&.disabled {
+			color: $GRAY;
+			background-color: rgba($GRAY, 0.5);
+
+			&::-webkit-inner-spin-button,
+			&::-webkit-calendar-picker-indicator {
+				filter: invert(50%);
+			}
+		}
+
+		&::-webkit-inner-spin-button,
+		&::-webkit-calendar-picker-indicator {
+			filter: invert(0%);
+		}
+	}
+
+	.wrapper {
+
+		.button {
+			span {
+
+				&::before,
+				&::after {
+					content: '';
+					background-color: $BLACK;
+				}
+
+				&:hover {
+					background-color: rgba($BLACK, 0.07);
+				}
+
+				&:hover::after,
+				&:hover::before {
+					background-color: $LIGHT_GREEN;
+				}
+			}
+		}
+
+		.group {
+			&.disabled {
+				input {
+					color: $GRAY;
+					background-color: rgba($GRAY, 0.5);
+				}
+			}
+
+		}
+	}
+}

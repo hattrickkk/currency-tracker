@@ -1,0 +1,11 @@
+@import '@styles/sizes.scss';
+
+.chartSection{
+	margin-bottom: 100px;
+}
+
+@media screen and (max-width: $NORMAL_TABLET) {
+	.chartSection {
+		margin-bottom: 60px;
+	}
+}

@@ -1,0 +1,6 @@
+export const HOME: string = '/'
+export const TIMELINE: string = '/timeline'
+export const BANK_CARD: string = '/bank-card'
+export const CONTSCTS: string = '/contacts'
+export const NOT_FOUND: string = '/404'
+export const OTHER: string = '*'

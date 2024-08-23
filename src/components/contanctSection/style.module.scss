@@ -1,0 +1,69 @@
+@import '@styles/colors.scss';
+@import '@styles/sizes.scss';
+
+.section {
+	padding: 120px 0;
+	line-height: 35px;
+
+	.text {
+		font-size: 24px;
+		text-align: center;
+		color: $GRAY;
+	}
+
+	.menu {
+		display: flex;
+		justify-content: space-between;
+		column-gap: 50px;
+		margin: 90px 0;
+
+		.item {
+			font-size: 20px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			flex: 1 1 33%;
+
+			img {
+				max-width: 70px;
+				margin-bottom: 30px;
+			}
+
+			span {
+				text-align: center;
+				transition: all 0.3s ease;
+				cursor: pointer;
+
+				&:hover {
+					color: $DARK_GREEN;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $NORMAL_TABLET) {
+	.section {
+		padding: 70px 0;
+
+		.text {
+			font-size: 22px;
+		}
+
+		.menu {
+			flex-direction: column;
+			margin: 70px 0;
+
+			.item {
+				&:not(:last-child) {
+					margin-bottom: 40px;
+				}
+
+
+				img {
+					margin-bottom: 20px;
+				}
+			}
+		}
+	}
+}
