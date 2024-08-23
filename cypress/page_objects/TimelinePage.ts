@@ -3,36 +3,34 @@ export class TimelinePage {
         cy.visit('/timeline')
     }
 
-    getAddButton() {
+    get addButton() {
         return cy.contains('button', 'Add')
     }
 
-    getDataInput() {
+    get dataInput() {
         return cy.get('input[type=date]')
     }
 
-    getInputsForEnteringData() {
+    get inputsForEnteringData() {
         return cy.get('[data-cy="inputs-group"]:last-child')
     }
 
-    getAllDisabledValues() {
+    get allDisabledValues() {
         return cy.get('[data-cy="inputs-group"]:not(:last-child)')
     }
 
-    getFirstInputForEnteringData() {
-        return this.getInputsForEnteringData().find('input[type=text]').first()
+    get firstInputForEnteringData() {
+        return this.inputsForEnteringData.find('input[type=text]').first()
     }
-    
+
     addButtonClick() {
-        this.getAddButton().click()
+        this.addButton.click()
     }
 
     addDataToChart(data: string) {
-        this.getInputsForEnteringData()
-            .find('input[type=text]')
-            .each($el => {
-                cy.wrap($el).type(data)
-            })
+        this.inputsForEnteringData.find('input[type=text]').each($el => {
+            cy.wrap($el).type(data)
+        })
         this.addButtonClick()
     }
 }

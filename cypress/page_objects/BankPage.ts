@@ -3,11 +3,11 @@ export class BankPage {
         cy.visit('/bank-card')
     }
 
-    getSearchInput() {
+    get searchInput() {
         return cy.get('input[id=search-id]')
     }
 
-    getsearchComplete() {
+    get searchComplete() {
         return cy.getByDataCy('search-complete')
     }
 }

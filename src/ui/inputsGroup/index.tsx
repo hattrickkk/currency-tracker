@@ -3,7 +3,7 @@ import { REGEX_FLOAT_NUMBERS } from '@constants/magicValues'
 import PRICES_ARR from '@constants/price'
 import THEMES from '@constants/themes'
 import ThemeContext from '@contexts/themeContext'
-import { CandleStickChartData, Price } from '@customTypes/chart'
+import { CandleStickChartData, ChartKeys, Price } from '@customTypes/chart'
 import INIT_CANDLESTICK_CHART_VALUES from '@mockData/initCandlestickChart'
 import Input from '@ui/input'
 import clsx from 'clsx'
@@ -21,12 +21,7 @@ type Props = {
     removeExchange?: (id: string) => void
 }
 
-type InputsRefs = {
-    o: RefObject<HTMLInputElement>
-    l: RefObject<HTMLInputElement>
-    h: RefObject<HTMLInputElement>
-    c: RefObject<HTMLInputElement>
-}
+type InputsRefs = Record<ChartKeys, RefObject<HTMLInputElement>>
 
 class InputsGroup extends PureComponent<Props, State> {
     static contextType = ThemeContext
@@ -69,11 +64,11 @@ class InputsGroup extends PureComponent<Props, State> {
 
     removeHandle = () => this.props.removeExchange(this.props.values.id)
 
-    highlightInput = (id: keyof InputsRefs): void => this.inputRefsObj[id].current.highlightElem()
+    highlightInput = (id: ChartKeys): void => this.inputRefsObj[id].current.highlightElem()
 
-    getValue = (id: keyof InputsRefs): string => this.inputRefsObj[id].current.getValue()
+    getValue = (id: ChartKeys): string => this.inputRefsObj[id].current.getValue()
 
-    resetValue = (id: keyof InputsRefs): string => this.inputRefsObj[id].current.resetValue()
+    resetValue = (id: ChartKeys): string => this.inputRefsObj[id].current.resetValue()
 
     render() {
         const { disabled, values, first } = this.props
@@ -104,7 +99,7 @@ class InputsGroup extends PureComponent<Props, State> {
                                     }
                                     maxLength={10}
                                     onChange={this.onChangeHandler}
-                                    ref={this.inputRefsObj[id as keyof InputsRefs]}
+                                    ref={this.inputRefsObj[id as ChartKeys]}
                                 />
                             </div>
                         ))}

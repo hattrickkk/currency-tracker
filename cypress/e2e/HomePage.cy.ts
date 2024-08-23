@@ -11,10 +11,10 @@ describe('Home page testing', () => {
         homePage.visit()
 
         homePage.clickThemeSwitcher()
-        homePage.getThemeSwitcherBody().should('have.css', 'border', '1.6px solid rgb(3, 3, 4)')
+        homePage.themeSwitcherBody.should('have.css', 'border', '1.6px solid rgb(3, 3, 4)')
 
         homePage.clickThemeSwitcher()
-        homePage.getThemeSwitcherBody().should('have.css', 'border', '1.6px solid rgb(255, 255, 255)')
+        homePage.themeSwitcherBody.should('have.css', 'border', '1.6px solid rgb(255, 255, 255)')
     })
 
     it('click to header nav', () => {
@@ -32,14 +32,14 @@ describe('Home page testing', () => {
         cy.get('[data-cy="currency-card"]:first-child').click({ multiple: true })
         cy.getByDataCy('popup').should('have.css', 'pointer-events', 'all')
         cy.contains('Argentine Peso')
-        homePage.getPopupInputs().first().type('123')
-        homePage.getPopupInputs().last().should('have.value', '0.13')
-        homePage.getDropdown().click()
-        homePage.getDropdown().find('li:nth-child(5)').click()
-        homePage.getDropdown().contains('CNY')
-        homePage.getPopup().find('input').last().should('have.value', '0.96')
+        homePage.popupInputs.first().type('123')
+        homePage.popupInputs.last().should('have.value', '0.13')
+        homePage.dropdown.click()
+        homePage.dropdown.find('li:nth-child(5)').click()
+        homePage.dropdown.contains('CNY')
+        homePage.popup.find('input').last().should('have.value', '0.96')
         cy.getByDataCy('popup-close').click()
-        homePage.getPopup().should('have.css', 'pointer-events', 'none')
+        homePage.popup.should('have.css', 'pointer-events', 'none')
     })
     it('get on notFound page and get back to home', () => {
         homePage.visit()

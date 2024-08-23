@@ -12,14 +12,12 @@ function CurrencyContextProvider({ children }: Props) {
     const [latestValues, setLatestValues] = useState<CurrencyContextType>(LATEST_VALUES)
 
     useEffect(() => {
-        getLatest().then(res => setLatestValues(res))
+        getLatest()
+            .then(res => setLatestValues(res))
+            .catch(error => console.error(`Something went wrong: ${error}`))
     }, [])
 
-    const initValue = useMemo(() => {
-        return { ...latestValues }
-    }, [latestValues])
-
-    return <CurrencyContext.Provider value={initValue}>{children}</CurrencyContext.Provider>
+    return <CurrencyContext.Provider value={latestValues}>{children}</CurrencyContext.Provider>
 }
 
 export default CurrencyContextProvider

@@ -13,7 +13,6 @@ type Props = {
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
     maxLength: number
     placeholder?: string
-    onClick: VoidFunction
 }
 
 type InputHandle = {
@@ -22,7 +21,7 @@ type InputHandle = {
     resetValue: VoidFunction
 }
 
-const Input = forwardRef<InputHandle, Props>(({ value, id, onChange, maxLength, placeholder, onClick }: Props, ref) => {
+const Input = forwardRef<InputHandle, Props>(({ value, id, onChange, maxLength, placeholder }: Props, ref) => {
     const { theme } = useContext<ThemeContextType>(ThemeContext)
     const inputRef = useRef<HTMLInputElement>(null)
 
@@ -40,7 +39,6 @@ const Input = forwardRef<InputHandle, Props>(({ value, id, onChange, maxLength, 
             placeholder={placeholder || 'Enter amount...'}
             value={value}
             onChange={onChange}
-            onClick={onClick}
             maxLength={maxLength}
             ref={inputRef}
         />
