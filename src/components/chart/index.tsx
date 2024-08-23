@@ -70,14 +70,22 @@ class CandlestickChart extends PureComponent<Props, State> implements Observer {
     }
 
     render() {
+        if (!this.state.datasets[0].data.length) return <p className={styles.text}>Nothing to show</p>
         return (
-            <div className={clsx(styles.chart)}>
+            <div className={clsx(styles.chart, this.context.theme === THEMES.LIGHT && styles.light)}>
                 <div className={styles.wrapper}>
                     <ReactChart
                         type={CHART_TYPE}
                         data={this.state}
                         options={this.context.theme === THEMES.DARK ? CHART_OPTIONS_DARK : CHART_OPTIONS_LIGHT}
                     />
+
+                    <div className={styles.valueArrow}>
+                        <span>VALUE</span>
+                    </div>
+                    <div className={styles.dayArrow}>
+                        <span>DAY</span>
+                    </div>
                 </div>
             </div>
         )
